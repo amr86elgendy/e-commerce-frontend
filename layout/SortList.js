@@ -23,7 +23,7 @@ const SortList = () => {
             key={i}
             className='py-4 pl-4 text-gray-500 transition-all duration-200 cursor-pointer hover:bg-primary-light hover:text-primary'
           >
-            {li.name}
+            {li}
           </li>
         ))}
       </ul>
