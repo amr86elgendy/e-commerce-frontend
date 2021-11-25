@@ -83,7 +83,7 @@ const ProductCard = ({ product }) => {
         />
         <ul className='absolute top-2.5 right-2.5'>
           <button
-            className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 transform translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'
+            className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'
             onClick={() => handleToogleCart(_id, colors, name, product)}
             disabled={quantity === 0}
           >
@@ -92,14 +92,14 @@ const ProductCard = ({ product }) => {
               className={
                 quantity === 0
                   ? 'hidden'
-                  : `absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black transform -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs`
+                  : `absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs`
               }
             >
               {cartTooltip(name) ? 'Added' : 'Add To Cart'}
             </span>
           </button>
           <button
-            className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 delay-150 transform translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'
+            className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 delay-150 translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'
             onClick={() => handleToogleWishlist(_id, product)}
           >
             {wishlistTooltip(_id) ? (
@@ -107,14 +107,14 @@ const ProductCard = ({ product }) => {
             ) : (
               <FaRegHeart className='text-lg' />
             )}
-            <span className='absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black transform -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs'>
+            <span className='absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs'>
               {wishlistTooltip(_id) ? 'Added' : 'Add To Wishlist'}
             </span>
           </button>
           <Link href={`/products/${slug}`}>
-            <button className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 delay-300 transform translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'>
+            <button className='relative flex items-center justify-center w-10 h-10 m-1 text-white transition-transform duration-500 delay-300 translate-x-16 rounded-full cursor-pointer group bg-primary focus:outline-none'>
               <BsEye className='text-lg' />
-              <span className='absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black transform -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs'>
+              <span className='absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs'>
                 view details
               </span>
             </button>

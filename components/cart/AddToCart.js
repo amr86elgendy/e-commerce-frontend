@@ -25,7 +25,7 @@ const AddToCart = ({ product }) => {
 
   return (
     <div>
-      <div className='grid mt-4 mb-4 grid-cols-125-1fr'>
+      <div className='grid mt-4 mb-4 grid-cols-[125px,1fr]'>
         <span className='font-bold capitalize'>colors :</span>
         <div className='flex'>
           {colors.map((color, index) => (
@@ -44,7 +44,7 @@ const AddToCart = ({ product }) => {
           ))}
         </div>
       </div>
-      <div className='grid items-center mt-4 mb-4 grid-cols-125-1fr'>
+      <div className='grid items-center mt-4 mb-4 grid-cols-[125px,1fr]'>
         <span className='font-bold capitalize'>sizes :</span>
         <div className='flex'>
           {['XS', 'S', 'M', 'L', 'XL'].map((size, index) => (

@@ -33,7 +33,7 @@ const Register = ({ authStatus, setAuthStatus }) => {
 
   return (
     <form
-      className={`absolute top-0 left-0 transition-all transform duration-300
+      className={`absolute top-0 left-0 transition-all duration-300
         ${
           authStatus === 'register'
             ? 'translate-x-0 visible pointer-events-auto'
@@ -47,7 +47,7 @@ const Register = ({ authStatus, setAuthStatus }) => {
           register
         </h3>
         <AiOutlineClose
-          className='text-xl transition-all duration-300 transform cursor-pointer hover:rotate-180 ease'
+          className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
           onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
         />
       </div>

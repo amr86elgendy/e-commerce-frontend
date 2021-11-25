@@ -8,9 +8,6 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      colors: {
-        star: '#FFDE00',
-      },
       minHeight: {
         page: 'calc(100vh - 176px)',
         forMobile: 'calc(100vh - 164px)',
@@ -33,27 +30,6 @@ module.exports = {
           from: { transform: 'translateX(100%)' },
           to: { translate: 'translateX(0)' },
         },
-      },
-      height: {
-        '5px': '5px',
-        500: '500px',
-        '5rem': '5rem',
-      },
-      gridTemplateColumns: {
-        'auto-1fr': 'auto 1fr',
-        '200-1fr': '200px 1fr',
-        '125-1fr': '125px 1fr',
-        '316-1fr3-auto': '316px 1fr 1fr 1fr auto',
-        '200-auto-auto': '200px auto auto',
-        '75-125': '75px 125px',
-        '100-200': '100px 200px',
-        '1fr4-auto': '1fr 1fr 1fr 1fr auto',
-        '1fr-1fr-100': '1fr 1fr 100px',
-        '2fr-1fr': '2fr 1fr',
-      },
-      gridTemplateRows: {
-        75: '75px',
-        'auto-auto-auto': 'auto auto auto',
       },
     },
   },

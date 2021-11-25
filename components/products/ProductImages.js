@@ -8,9 +8,9 @@ const ProductImages = ({ images }) => {
       <img
         src={main}
         alt='image'
-        className='w-full h-80 md:h-500 block rounded object-cover object-center'
+        className='block object-cover object-center w-full rounded h-80 md:h-[500px]'
       />
-      <div className='mt-4 grid grid-cols-5 gap-x-4'>
+      <div className='grid grid-cols-5 mt-4 gap-x-4'>
         {images.map((image, index) => {
           return (
             <img

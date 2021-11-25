@@ -20,7 +20,7 @@ const Login = () => {
   return (
     <div className='w-full overflow-hidden'>
       <form
-        className={`absolute top-0 left-0 transition-all transform duration-300
+        className={`absolute top-0 left-0 transition-all duration-300
         ${
           authStatus === 'login'
             ? 'translate-x-0 visible pointer-events-auto'
@@ -32,7 +32,7 @@ const Login = () => {
         <div className='flex justify-between p-4 border-b'>
           <h3 className='tracking-wider uppercase text-primary'>login</h3>
           <AiOutlineClose
-            className='text-xl transition-all duration-300 transform cursor-pointer hover:rotate-180 ease'
+            className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
             onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
           />
         </div>

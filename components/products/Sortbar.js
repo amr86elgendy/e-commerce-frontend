@@ -42,7 +42,7 @@ const Sortbar = () => {
           {Array.from({ length: 3 }, (_, i) => (
             <div
               key={i}
-              className='w-8 m-0.5 bg-gray-600 group-hover:bg-black transition-all duration-200 h-5px'
+              className='w-8 m-0.5 bg-gray-600 group-hover:bg-black transition-all duration-200 h-[5px]'
             ></div>
           ))}
         </div>
@@ -80,7 +80,7 @@ const Sortbar = () => {
         sort by{' '}
         <FaAngleDown
           className={`inline-block transition-all duration-200 ${
-            openSort && 'transform rotate-180'
+            openSort && 'rotate-180'
           }`}
         />
       </div>
@@ -92,11 +92,11 @@ const Sortbar = () => {
         {sort}{' '}
         <FaAngleDown
           className={`inline-block transition-all duration-200 ${
-            openSort && 'transform rotate-180'
+            openSort && 'rotate-180'
           }`}
         />
         <ul
-          className={`absolute left-auto z-40 w-11/12 transition-all duration-200 transform bg-white top-14 shadow-sort ${
+          className={`absolute left-auto z-40 w-11/12 transition-all duration-200 bg-white top-14 shadow-sort ${
             openSort
               ? 'opacity-100 visible scale-100'
               : 'scale-75 opacity-0 invisible'

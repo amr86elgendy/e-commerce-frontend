@@ -20,7 +20,7 @@ const About = () => {
         <img
           src='images/product-1.jpg'
           alt='our story'
-          className='block object-cover w-full rounded-md h-500'
+          className='block object-cover w-full rounded-md h-[500px]'
         />
         <article>
           <h2

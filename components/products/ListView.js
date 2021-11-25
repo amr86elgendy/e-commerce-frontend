@@ -19,7 +19,7 @@ const ListView = ({ products }) => {
         return (
           <article
             key={_id}
-            className='items-center lg:grid grid-cols-auto-1fr gap-x-6'
+            className='items-center lg:grid grid-cols-[auto,1fr] gap-x-6'
           >
             <figure className='mb-4 overflow-hidden rounded sm:w-96'>
               <Image
@@ -28,7 +28,7 @@ const ListView = ({ products }) => {
                 width={390}
                 height={310}
                 layout='responsive'
-                className='align-middle transition-transform duration-1000 transform scale-100 hover:scale-125'
+                className='align-middle transition-transform duration-1000 scale-100 hover:scale-125'
               />
             </figure>
             <div>

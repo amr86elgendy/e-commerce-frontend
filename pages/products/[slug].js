@@ -50,18 +50,18 @@ const ProductDetails = ({ product }) => {
               <p
                 className={
                   quantity === 0
-                    ? 'capitalize w-72 grid grid-cols-125-1fr mb-4 text-red-600'
-                    : 'capitalize w-72 grid grid-cols-125-1fr mb-4 text-primary'
+                    ? 'capitalize w-72 grid grid-cols-[125px,1fr] mb-4 text-red-600'
+                    : 'capitalize w-72 grid grid-cols-[125px,1fr] mb-4 text-primary'
                 }
               >
                 <span className='font-bold text-black'>Available : </span>
                 {quantity > 0 ? 'In stock' : 'out of stock'}
               </p>
-              <p className='grid mb-4 text-xs capitalize sm:text-base grid-cols-125-1fr'>
+              <p className='grid mb-4 text-xs capitalize sm:text-base grid-cols-[125px,1fr]'>
                 <span className='text-base font-bold'>SKU :</span>
                 {SKU}
               </p>
-              <p className='grid mb-4 capitalize w-72 grid-cols-125-1fr'>
+              <p className='grid mb-4 capitalize w-72 grid-cols-[125px,1fr]'>
                 <span className='font-bold'>Brand :</span>
                 {brand}
               </p>

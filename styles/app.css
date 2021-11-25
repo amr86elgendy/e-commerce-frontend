@@ -59,7 +59,7 @@ h4 {
 /* ############# TOP LEFT LINKS ############# */
 
 .top-left-links > ul {
-  @apply absolute left-0 z-50 invisible w-24 transition-all duration-300 transform translate-y-8 bg-white shadow-md opacity-0 top-8;
+  @apply absolute left-0 z-50 invisible w-24 transition-all duration-300 translate-y-8 bg-white shadow-md opacity-0 top-8;
 }
 .top-left-links:hover > ul {
   opacity: 1;

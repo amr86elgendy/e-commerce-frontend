@@ -13,10 +13,10 @@ const Star = ({ rating, numReviews }) => {
   return (
     <div className="flex">
       {arr.map((el, i) => {
-        if (el === 0) return <BsStar key={i} className="text-star m-0.5" />;
+        if (el === 0) return <BsStar key={i} className="text-[#FFDE00] m-0.5" />;
         if (el === 0.5)
-          return <BsStarHalf key={i} className="text-star m-0.5" />;
-        if (el === 1) return <BsStarFill key={i} className="text-star m-0.5" />;
+          return <BsStarHalf key={i} className="text-[#FFDE00] m-0.5" />;
+        if (el === 1) return <BsStarFill key={i} className="text-[#FFDE00] m-0.5" />;
       })}
       {numReviews !== undefined && (
         <span className={`ml-2 ${locale === "ar" && "font-helv"}`}>

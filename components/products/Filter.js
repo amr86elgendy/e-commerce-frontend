@@ -21,7 +21,7 @@ const Filter = () => {
   return (
     <div
       className={`hidden my-4 shadow-filter transition-all duration-300 px-8 md:grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 overflow-hidden ${
-        openFilter ? 'h-500 pt-8' : 'h-0 pt-0'
+        openFilter ? 'h-[500px] pt-8' : 'h-0 pt-0'
       }`}
     >
       <div>

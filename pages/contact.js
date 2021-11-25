@@ -68,7 +68,7 @@ const Contact = () => {
   return (
     <>
       <Breadcrumb path={path} />
-      <section className='container grid px-4 py-12 lg:grid-cols-2fr-1fr'>
+      <section className='container grid px-4 py-12 lg:grid-cols-[2fr,1fr]'>
         <div className='w-24 h-1 mx-auto mb-8 lg:col-span-2 bg-secondary'></div>
         <div className='sm:px-5'>
           <h1
@@ -79,7 +79,7 @@ const Contact = () => {
           </h1>
           <div className='w-12 h-1 mb-6 bg-secondary'></div>
           <form
-            className='grid gap-4 sm:grid-cols-2 sm:grid-rows-auto-auto-auto'
+            className='grid gap-4 sm:grid-cols-2 sm:grid-rows-[auto,auto,auto]'
             onSubmit={handleSubmit}
           >
             <div className=''>

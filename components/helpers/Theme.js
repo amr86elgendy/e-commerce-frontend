@@ -14,11 +14,11 @@ const Theme = () => {
   ];
 
   return (
-    <div className='fixed left-0 z-30 flex py-2 transform -translate-y-1/2 top-1/2 group'>
+    <div className='fixed left-0 z-30 flex py-2 -translate-y-1/2 top-1/2 group'>
       <div className='flex items-center justify-center w-10 h-8 text-white rounded-r-full cursor-pointer bg-primary'>
         <FaPaintBrush />
       </div>
-      <div className='absolute top-0 left-0 p-2 transition-all duration-200 transform -translate-x-full bg-black rounded-r group-hover:translate-x-0'>
+      <div className='absolute top-0 left-0 p-2 transition-all duration-200 -translate-x-full bg-black rounded-r group-hover:translate-x-0'>
         <ul className='flex'>
           <li className='mr-2 text-white capitalize whitespace-nowrap'>
             theme color
@@ -26,7 +26,7 @@ const Theme = () => {
           {themeColor.map((c, i) => (
             <li
               key={i}
-              className='w-6 h-6 mx-1 transition-all duration-200 transform rounded-full cursor-pointer hover:scale-110'
+              className='w-6 h-6 mx-1 transition-all duration-200 rounded-full cursor-pointer hover:scale-110'
               style={{ backgroundColor: c.primary }}
               onClick={() =>
                 setThemeColor({

@@ -8,7 +8,7 @@ const MenuSide = () => {
       <div className='flex justify-between p-4 border-b'>
         <h3 className='tracking-wider uppercase text-primary'>menu</h3>
         <AiOutlineClose
-          className='text-xl transition-all duration-300 transform cursor-pointer hover:rotate-180 ease'
+          className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
           onClick={() => dispatch('CLOSE_SIDEBAR_LEFT')}
         />
       </div>

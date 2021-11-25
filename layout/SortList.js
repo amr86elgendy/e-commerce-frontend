@@ -6,14 +6,14 @@ const SortList = () => {
   const { dispatch, openSortList } = useGlobalContext();
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-50 w-full transition-all duration-300 transform bg-white ${
+      className={`fixed bottom-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white ${
         openSortList ? 'translate-y-0 visible' : 'translate-y-full invisible'
       }`}
     >
       <div className='flex justify-between p-4 border-b'>
         <h3 className='uppercase text-primary'>sort by</h3>
         <AiOutlineClose
-          className='text-xl transition-all duration-300 transform cursor-pointer hover:rotate-180 ease'
+          className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
           onClick={() => dispatch('TOGGLE_SORT_LIST')}
         />
       </div>

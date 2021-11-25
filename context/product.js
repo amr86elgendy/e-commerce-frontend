@@ -38,14 +38,18 @@ export const ProductProvider = ({ children }) => {
 
   const dispatch = (type, payload) => defaultDispatch({ type, payload });
 
+  //const {isLoading, isError} = useQuery(fetcher, {})
+
   useEffect(() => {
-    const loadProducts = async () => {
+    const loadProducts = async (color, size) => {
+      
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_APP_URL}/api/products`
       );
+  
       const data = await res.json();
-      
-      dispatch('ALL_PRODUCTS', data)
+
+      dispatch('ALL_PRODUCTS', data);
     }
     loadProducts()
     return () => console.log('cleanup product context')

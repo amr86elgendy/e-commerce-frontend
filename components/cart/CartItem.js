@@ -13,8 +13,8 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
   };
 
   return (
-    <div className='grid items-center mb-12 grid-cols-200-auto-auto md:grid-cols-1fr4-auto grid-rows-75 gap-x-4 lg:gap-x-12 gap-y-4 justify-items-center'>
-      <div className='grid items-center gap-4 text-center grid-rows-75 grid-cols-75-125 md:grid-cols-100-200 md:text-left md:h-full'>
+    <div className='grid items-center mb-12 grid-cols-[200px,auto,auto] md:grid-cols-[1fr,1fr,1fr,1fr,auto] grid-rows-[75px] gap-x-4 lg:gap-x-12 gap-y-4 justify-items-center'>
+      <div className='grid items-center gap-4 text-center grid-rows-[75px] grid-cols-[75px,125px] md:grid-cols-[100px,200px] md:text-left md:h-full'>
         <img
           src={image}
           alt={name}
@@ -55,7 +55,10 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
       <h5 className='hidden font-normal text-gray-400 md:block'>
         {price * amount}
       </h5>
-      <FaTrash onClick={() => removeItem(_id)} className='cursor-pointer text-gray-700 hover:text-red-500' />
+      <FaTrash
+        onClick={() => removeItem(_id)}
+        className='text-gray-700 cursor-pointer hover:text-red-500'
+      />
     </div>
   );
 };
