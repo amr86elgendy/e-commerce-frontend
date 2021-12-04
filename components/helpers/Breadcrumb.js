@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const Breadcrumb = ({ path }) => {
+  
   return (
     <nav className='items-center hidden h-20 bg-gray-100 md:flex hover:bg-gray-50'>
       <div className='container'>

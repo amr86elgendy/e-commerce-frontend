@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useGlobalContext } from '../../context/global';
+import { login } from '../../functions/auth';
 import Button from '../helpers/RippleButton'
 import Register from './Register';
 
@@ -15,6 +16,8 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const { data } = await login(email, password);
+    console.log(data);
   };
   
   return (

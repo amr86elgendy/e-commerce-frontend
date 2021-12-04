@@ -5,6 +5,7 @@ import Breadcrumb from '../../components/helpers/Breadcrumb';
 import Star from '../../components/products/Star';
 import ProductImages from '../../components/products/ProductImages';
 import AddToCart from '../../components/cart/AddToCart';
+import axios from 'axios';
 
 const ProductDetails = ({ product }) => {
   const { locale, pathname, query } = useRouter();
@@ -76,16 +77,16 @@ const ProductDetails = ({ product }) => {
   );
 };
 
-export async function getServerSideProps({ params: { slug } }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/products/${slug}`
+export async function getServerSideProps({ query }) {
+  
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products/${query.id}`
   );
-  const data = await res.json();
-
+  
   if (!data) return { notFound: true };
 
   return {
-    props: { product: data },
+    props: { product: data.product },
   };
 }
 

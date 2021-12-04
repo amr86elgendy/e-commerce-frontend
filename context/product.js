@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { createContext, useContext, useEffect, useReducer } from 'react';
 
 // reducer
@@ -7,9 +8,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         products: action.payload,
-        newArrival: action.payload
-          .sort((a, b) => b.createdAt - a.createdAt)
-          .slice(0, 4),
       };
     case 'SET_CURRENCY':
       return {
@@ -24,8 +22,6 @@ const reducer = (state, action) => {
 // initial state
 const initialState = {
   products: [],
-  newArrival: [],
-  bestSeller: [],
   currency: 'EGP'
 }
 
@@ -43,13 +39,11 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     const loadProducts = async (color, size) => {
       
-      const res = await fetch(
+      const { data } = await axios.get(
         `${process.env.NEXT_PUBLIC_APP_URL}/api/products`
       );
-  
-      const data = await res.json();
 
-      dispatch('ALL_PRODUCTS', data);
+      dispatch('ALL_PRODUCTS', data.products);
     }
     loadProducts()
     return () => console.log('cleanup product context')

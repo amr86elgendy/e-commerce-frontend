@@ -3,7 +3,6 @@ import ProductCard from '../products/ProductCard';
 
 const NewArrival = ({ products }) => {
   const { locale } = useRouter();
-
   return (
     <section className='px-5 py-20'>
       <h1 className='mb-3 italic font-bold tracking-wider text-center uppercase md:text-5xl'>

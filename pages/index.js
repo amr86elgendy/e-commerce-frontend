@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Head from 'next/head';
 import BestSeller from '../components/home/BestSeller';
 import Header from '../components/home/Header';
@@ -17,14 +18,17 @@ export default function Home({ bestSeller, newArrival }) {
 }
 
 export async function getServerSideProps() {
-  const resNew = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/products/new-arrival`
+  const {
+    data: { products: newArrival },
+  } = await axios.get(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=createdAt`
   );
-  const newArrival = await resNew.json();
-  const resBest = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/products/best-seller`
+
+  const {
+    data: { products: bestSeller },
+  } = await axios.get(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=sold`
   );
-  const bestSeller = await resBest.json();
   return {
     props: {
       newArrival,

@@ -3,7 +3,6 @@ import ProductCard from '../products/ProductCard';
 
 const BestSeller = ({ products }) => {
   const { locale } = useRouter();
-
   return (
     <section className='px-5 py-20 bg-gray-100'>
       <h1

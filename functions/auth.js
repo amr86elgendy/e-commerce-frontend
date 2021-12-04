@@ -1,18 +1,21 @@
+import axios from 'axios';
 
 export const register = async (user) => {
-  return await fetch(`${process.env.URL}/api/register`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(user),
-  });
-  // return await res.json();
+  return await axios.post(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/register`,
+    user,
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
 };
 
 export const login = async (email, password) => {
-  const res = await fetch(`${process.env.URL}/api/login`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-  });
-  return await res.json();
+  return await axios.post(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/login`,
+    { email, password },
+    {
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
 };
