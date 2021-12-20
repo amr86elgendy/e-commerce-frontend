@@ -6,7 +6,7 @@ const ProductImages = ({ images }) => {
   return (
     <div>
       <img
-        src={main}
+        src={`${process.env.NEXT_PUBLIC_APP_URL}${main}`}
         alt='image'
         className='block object-cover object-center w-full rounded h-80 md:h-[500px]'
       />
@@ -14,7 +14,7 @@ const ProductImages = ({ images }) => {
         {images.map((image, index) => {
           return (
             <img
-              src={image}
+              src={`${process.env.NEXT_PUBLIC_APP_URL}${image}`}
               alt='image'
               key={index}
               className={

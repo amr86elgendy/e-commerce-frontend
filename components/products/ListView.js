@@ -23,7 +23,7 @@ const ListView = ({ products }) => {
           >
             <figure className='mb-4 overflow-hidden rounded sm:w-96'>
               <Image
-                src={images[0]}
+                src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
                 alt={slug}
                 width={390}
                 height={310}
