@@ -71,7 +71,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className='relative card'>
+    <div className='relative card shadow-card'>
       <figure className='relative w-full overflow-hidden min-h-80'>
         <Image
           src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}

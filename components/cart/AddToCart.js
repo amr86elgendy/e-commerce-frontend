@@ -6,7 +6,7 @@ import { FaCheck } from 'react-icons/fa';
 import AmountButtons from './AmountButtons';
 
 const AddToCart = ({ product }) => {
-  const { _id, quantity, colors } = product;
+  const { _id, quantity, colors, sizes } = product;
   const { addToCart } = useCartContext();
   const { locale } = useRouter()
 
@@ -47,7 +47,7 @@ const AddToCart = ({ product }) => {
       <div className='grid items-center mt-4 mb-4 grid-cols-[125px,1fr]'>
         <span className='font-bold capitalize'>sizes :</span>
         <div className='flex'>
-          {['XS', 'S', 'M', 'L', 'XL'].map((size, index) => (
+          {sizes.map((size, index) => (
             <button
               key={index}
               className={

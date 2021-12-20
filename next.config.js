@@ -1,3 +1,7 @@
 module.exports = () => {
-  return {};
-}
+  return {
+    images: {
+      domains: ['elgendy-ecommerce.herokuapp.com'],
+    },
+  };
+};

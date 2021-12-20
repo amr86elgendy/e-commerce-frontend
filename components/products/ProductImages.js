@@ -19,7 +19,7 @@ const ProductImages = ({ images }) => {
               key={index}
               className={
                 image === main
-                  ? 'border-2 border-secondary h-12 sm:h-24 cursor-pointer'
+                  ? 'border-2 border-primary-light h-12 sm:h-24 cursor-pointer'
                   : 'h-12 sm:h-24 cursor-pointer'
               }
               onClick={() => setMain(images[index])}

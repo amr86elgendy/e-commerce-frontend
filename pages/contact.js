@@ -70,7 +70,7 @@ const Contact = () => {
       <Breadcrumb path={path} />
       <section className='container grid px-4 py-12 lg:grid-cols-[2fr,1fr]'>
         <div className='w-24 h-1 mx-auto mb-8 lg:col-span-2 bg-secondary'></div>
-        <div className='sm:px-5'>
+        <div className='sm:px-5 shadow-card'>
           <h1
             className={`capitalize text-secondary text-3xl sm:text-4xl font-semibold tracking-widest mb-2'
           `}
