@@ -69,12 +69,12 @@ const ProductCard = ({ product }) => {
       });
     }
   };
-
+console.log(images);
   return (
     <div className='relative card'>
       <figure className='relative w-full overflow-hidden min-h-80'>
         <Image
-          src={images[0]}
+          src={`${process.env.NEXT_PUBLIC_APP_URL}/${images[0]}`}
           alt={name}
           width={350}
           height={400}

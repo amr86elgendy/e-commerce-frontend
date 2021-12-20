@@ -4,7 +4,7 @@ import { FaPaintBrush } from 'react-icons/fa';
 const Theme = () => {
   const { setThemeColor } = useTheme();
 
-  const themeColor = [
+  const themeColors = [
     { primary: '#f43f5e', primaryDark: '#E11D48', primaryLightest: '#FFF1F2' },
     { primary: '#1D4ED8', primaryDark: '#1E40AF', primaryLightest: '#E0F2FE' },
     { primary: '#7C3AED', primaryDark: '#6D28D9', primaryLightest: '#F5F3FF' },
@@ -23,7 +23,7 @@ const Theme = () => {
           <li className='mr-2 text-white capitalize whitespace-nowrap'>
             theme color
           </li>
-          {themeColor.map((c, i) => (
+          {themeColors.map((c, i) => (
             <li
               key={i}
               className='w-6 h-6 mx-1 transition-all duration-200 rounded-full cursor-pointer hover:scale-110'

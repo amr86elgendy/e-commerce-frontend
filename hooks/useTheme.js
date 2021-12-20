@@ -9,7 +9,7 @@ export default function useTheme() {
     } else {
       setThemeColor({
         primary: '#f43f5e',
-        primaryDark: '',
+        primaryDark: '#E11D48',
         primaryLightest: '#FFF1F2',
       });
     }
