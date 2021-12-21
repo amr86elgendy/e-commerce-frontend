@@ -43,7 +43,11 @@ const CartSide = () => {
                 key={item._id}
               >
                 <a href='' className='block w-32'>
-                  <img src={item.image} alt='' className='w-full h-ful' />
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_APP_URL}${item.image}`}
+                    alt=''
+                    className='w-full h-ful'
+                  />
                 </a>
                 <div className='flex-1 overflow-hidden'>
                   <a

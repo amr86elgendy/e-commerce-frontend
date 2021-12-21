@@ -38,7 +38,7 @@ const ListView = ({ products }) => {
                 {description.substring(0, 150)}...
               </p>
               <Star rating={rating} numReviews={numReviews} />
-              <Link href={`/products/${slug}`}>
+              <Link href={`/products/${slug}?id=${_id}`}>
                 <button className='px-4 py-1.5 mt-4 btn btn-primary'>
                   Details
                 </button>

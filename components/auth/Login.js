@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useGlobalContext } from '../../context/global';
-import { login } from '../../functions/auth';
+import { useUserContext } from '../../context/auth';
+import { useLogin } from '../../apis/auth';
 import Button from '../helpers/RippleButton'
 import Register from './Register';
 
@@ -9,15 +10,20 @@ const Login = () => {
   const [authStatus, setAuthStatus] = useState('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const { mutate: login, isLoading, isError, error } = useLogin()
   
-  const { dispatch } = useGlobalContext();
+  const { dispatch: dispatchGlobal } = useGlobalContext();
+  const { dispatch: dispatchAuth } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await login(email, password);
-    console.log(data);
+    login({ email, password }, {
+      onSuccess: (data) => {
+        dispatchAuth('LOGIN', data);
+        localStorage.setItem('ishop-token', data.token)
+        dispatchGlobal('CLOSE_SIDEBAR_RIGHT');
+      }
+    });
   };
   
   return (
@@ -36,29 +42,26 @@ const Login = () => {
           <h3 className='tracking-wider uppercase text-primary'>login</h3>
           <AiOutlineClose
             className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-            onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
+            onClick={() => dispatchGlobal('CLOSE_SIDEBAR_RIGHT')}
           />
         </div>
         <div className='p-4 mt-3'>
           <label className='font-light text-gray-500'>
-            Email or Username
+            Email
             <span className='text-red-500'>*</span>
           </label>
           <input
             type='email'
             className={
-              error.includes('email')
+              isError
                 ? 'w-full mt-2 p-2 border outline-none border-red-600'
                 : 'w-full mt-2 p-2 border outline-none border-gray-300'
             }
             value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-              setError('');
-            }}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <small className='text-red-600 capitalize'>
-            {error.includes('email') && error}
+            {isError && error.response.data.msg}
           </small>
         </div>
         <div className='p-4'>
@@ -69,18 +72,15 @@ const Login = () => {
           <input
             type='password'
             className={
-              error.includes('password')
+              isError
                 ? 'w-full mt-2 p-2 border outline-none border-red-600'
                 : 'w-full mt-2 p-2 border outline-none border-gray-300'
             }
             value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setError('');
-            }}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <small className='text-red-600 capitalize'>
-            {error.includes('password') && error}
+            {isError && error.response.data.msg}
           </small>
         </div>
         <div className='p-4'>

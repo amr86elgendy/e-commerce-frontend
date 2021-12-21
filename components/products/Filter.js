@@ -17,7 +17,7 @@ const Filter = () => {
   const categories = getUniqueValues(all_products, 'category');
   const brands = getUniqueValues(all_products, 'brand');
   const colors = getUniqueValues(all_products, 'colors');
-  // console.log(brands);
+  
   return (
     <div
       className={`hidden my-4 shadow-filter transition-all duration-300 px-8 md:grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 overflow-hidden ${
@@ -34,7 +34,7 @@ const Filter = () => {
           value={text}
           placeholder='Search...'
           onChange={updateFilters}
-          className='block w-10/12 px-3 py-1 mt-6 border-2 border-gray-400'
+          className='block w-10/12 px-3 py-2 mt-6 border-2 border-gray-300 rounded focus:outline-none focus:border-primary'
         />
       </div>
       {/* CATEGORY */}

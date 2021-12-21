@@ -18,16 +18,12 @@ const About = () => {
       <Breadcrumb path={path} />
       <main className='grid gap-16 px-5 my-16 md:grid-cols-2'>
         <img
-          src='images/product-1.jpg'
+          src='charisse.jpg'
           alt='our story'
           className='block object-cover w-full rounded-md h-[500px]'
         />
         <article>
-          <h2
-            className='text-5xl font-semibold mb-2.5'
-          >
-            Our Story
-          </h2>
+          <h2 className='text-5xl font-semibold mb-2.5'>Our Story</h2>
           <div className='w-24 h-1 bg-secondary'></div>
           <p className='mx-5 mt-8 leading-loose text-gray-500 md:mx-0'>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat

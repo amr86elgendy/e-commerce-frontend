@@ -11,7 +11,7 @@ const CartItem = ({ _id, images, name, price, slug }) => {
       <div className='grid grid-rows-[75px] grid-cols-[75px,125px] md:grid-cols-[100px,200px] gap-4 items-center text-center md:text-left md:h-full'>
         <Link href={`/products/${slug}`}>
           <img
-            src={images[0]}
+            src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
             alt={name}
             className='block object-cover w-full h-full rounded cursor-pointer'
           />

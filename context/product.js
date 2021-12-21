@@ -34,22 +34,6 @@ export const ProductProvider = ({ children }) => {
 
   const dispatch = (type, payload) => defaultDispatch({ type, payload });
 
-  //const {isLoading, isError} = useQuery(fetcher, {})
-
-  useEffect(() => {
-    const loadProducts = async (color, size) => {
-      
-      const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/products`
-      );
-
-      dispatch('ALL_PRODUCTS', data.products);
-    }
-    loadProducts()
-    return () => console.log('cleanup product context')
-  }, [])
-  // console.log(state)
-
   return (
     <ProductContext.Provider value={{...state, dispatch}}>{children}</ProductContext.Provider>
   )

@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
-import { ImSpinner8 } from 'react-icons/im';
-import { useRouter } from 'next/router';
 import Button from '../helpers/RippleButton';
 import { useGlobalContext } from '../../context/global';
+import { useUserContext } from '../../context/auth';
+import { useRegister } from '../../apis/auth';
 
 const Register = ({ authStatus, setAuthStatus }) => {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { mutate: register, isLoading, isError, error } = useRegister();
 
-  const { dispatch } = useGlobalContext();
+  function checkError(str) {
+    const { msg } = error.response.data;
+    return msg.toLowerCase().includes(str);
+  }
+
+  const { dispatch: dispatchGlobal } = useGlobalContext();
+  const { dispatch: dispatchAuth } = useUserContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setLoading(true);
-    // const user = { username, email, password };
-    // const res = await register(user);
-    // if (res.status !== 200) {
-    //   const errors = await res.json();
-    //   setLoading(false);
-    //   setError(errors);
-    // } else {
-    //   const data = await res.json();
-    //   setLoading(false);
-    //   dispatch({ type: 'LOGIN', payload: data });
-    //   localStorage.setItem('user', JSON.stringify(data));
-    // }
+    register(
+      { name, email, password },
+      {
+        onSuccess: (data) => {
+          dispatchAuth('LOGIN', data);
+          dispatchGlobal('CLOSE_SIDEBAR_RIGHT');
+        },
+      }
+    );
   };
 
   return (
@@ -52,20 +53,17 @@ const Register = ({ authStatus, setAuthStatus }) => {
         />
       </div>
       <div className='px-4 py-2 mt-3'>
-        <label className={`font-light text-gray-500`}>Username</label>
+        <label className={`font-light text-gray-500`}>Name</label>
         <input
           type='text'
           className={`w-full mt-2 p-2 border outline-none ${
-            error && error.username ? 'border-red-600' : 'border-gray-300'
+            isError && checkError('name') ? 'border-red-600' : 'border-gray-300'
           }`}
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-            setError({ ...error, username: null });
-          }}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <small className='text-red-600 capitalize'>
-          {error && error.username && error.username.message}
+          {isError && checkError('name') && error.response.data.msg}
         </small>
       </div>
 
@@ -77,16 +75,15 @@ const Register = ({ authStatus, setAuthStatus }) => {
         <input
           type='email'
           className={`w-full mt-2 p-2 border outline-none ${
-            error && error.email ? 'border-red-600' : 'border-gray-300'
+            isError && checkError('email')
+              ? 'border-red-600'
+              : 'border-gray-300'
           }`}
           value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setError({ ...error, email: null });
-          }}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <small className='text-red-600 capitalize'>
-          {error && error.email && error.email.message}
+          {isError && checkError('email') && error.response.data.msg}
         </small>
       </div>
       <div className='px-4 py-2'>
@@ -97,16 +94,15 @@ const Register = ({ authStatus, setAuthStatus }) => {
         <input
           type='password'
           className={`w-full mt-2 p-2 border outline-none ${
-            error && error.password ? 'border-red-600' : 'border-gray-300'
+            isError && checkError('password')
+              ? 'border-red-600'
+              : 'border-gray-300'
           }`}
           value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-            setError({ ...error, password: null });
-          }}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <small className='text-red-600 capitalize'>
-          {error && error.password && error.password.message}
+          {isError && checkError('password') && error.response.data.msg}
         </small>
       </div>
       <div className='p-4'>

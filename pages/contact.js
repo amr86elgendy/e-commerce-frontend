@@ -70,7 +70,7 @@ const Contact = () => {
       <Breadcrumb path={path} />
       <section className='container grid px-4 py-12 lg:grid-cols-[2fr,1fr]'>
         <div className='w-24 h-1 mx-auto mb-8 lg:col-span-2 bg-secondary'></div>
-        <div className='sm:px-5 shadow-card'>
+        <div className='sm:px-5'>
           <h1
             className={`capitalize text-secondary text-3xl sm:text-4xl font-semibold tracking-widest mb-2'
           `}
@@ -90,7 +90,7 @@ const Contact = () => {
                 type='text'
                 defaultValue={name}
                 placeholder='Enter Your Name'
-                className='w-full p-2 mt-2 border border-gray-300 rounded outline-none'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
               />
             </div>
             <div className=''>
@@ -101,7 +101,7 @@ const Contact = () => {
                 type='email'
                 defaultValue={email}
                 placeholder='Enter Your Email'
-                className='w-full p-2 mt-2 border border-gray-300 rounded outline-none'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
               />
             </div>
             <div className='sm:col-span-2'>
@@ -115,15 +115,15 @@ const Contact = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder='Write Your Message Here ...'
-                className='w-full p-2 mt-2 border border-gray-300 rounded outline-none'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
               />
             </div>
             <Button
-            className='w-56 px-4 py-2 mt-4 tracking-wide uppercase btn-primary'
-            type='submit'
-          >
-            send your message
-          </Button>
+              className='w-56 px-4 py-2 mt-4 tracking-wide uppercase btn-primary'
+              type='submit'
+            >
+              send your message
+            </Button>
           </form>
         </div>
         <div className='sm:px-5'>

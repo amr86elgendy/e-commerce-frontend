@@ -3,7 +3,7 @@ import React from 'react';
 
 const CartColumns = () => {
   const { locale } = useRouter();
-  console.log(locale);
+  
   return (
     <div className='hidden mt-8 md:block'>
       <div className='grid capitalize grid-cols-[316px,1fr,1fr,1fr,auto] justify-items-center gap-x-4 lg:gap-x-12'>

@@ -17,6 +17,7 @@ module.exports = {
         sort: '0 1px 5px 2px rgb(0 0 0 / 10%)',
         footbar: '0 -1px 5px rgb(0 0 0 / 10%)',
         card: '0 1px 3px #00000026',
+        input: '0 0 0 0.25rem rgb(244 63 94 / 25%)',
       },
       animation: {
         ripple: 'ripple 1s linear infinite',
@@ -65,8 +66,10 @@ module.exports = {
         '.bg-primary-light': {
           backgroundColor: 'var(--primaryLightest)',
         },
-        '.border-primary-light': {
-          borderColor: 'var(--primaryLightest)',
+        '.border-primary': {
+          borderColor: 'var(--primary)',
+          boxShadow: '0 0 0 0.25rem var(--primaryLightest)',
+
         },
       });
     },

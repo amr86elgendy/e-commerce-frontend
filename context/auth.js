@@ -1,14 +1,14 @@
+import axios from 'axios';
 import { createContext, useContext, useEffect, useReducer } from 'react';
+import { showMe } from '../apis/auth';
 
 // reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':
-      return { ...state, authenticated: true, user: action.payload };
+      return { ...state, isAuthenticated: true, user: action.payload.user };
     case 'LOGOUT':
-      return { ...state, authenticated: false, user: null };
-    case 'STOP_LOADING':
-      return { ...state, loading: false };
+      return { ...state, isAuthenticated: false, user: null };
     default:
       return state;
   }
@@ -16,9 +16,8 @@ const reducer = (state, action) => {
 
 // initial state
 const initialState = {
-  authenticated: false,
+  isAuthenticated: false,
   user: null,
-  loading: true,
 };
 
 // create context
@@ -31,8 +30,10 @@ export const UserProvider = ({ children }) => {
   const dispatch = (type, payload) => defaultDispatch({ type, payload });
 
   useEffect(() => {
-    if (localStorage.getItem('user')) {
-      dispatch('LOGIN', JSON.parse(localStorage.getItem('user')));
+    if (localStorage.getItem('ishop-token')) {
+      showMe(localStorage.getItem('ishop-token')).then((data) =>
+        dispatch('LOGIN', data)
+      );
     }
   }, []);
 

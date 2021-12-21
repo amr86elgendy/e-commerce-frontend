@@ -16,7 +16,7 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
     <div className='grid items-center mb-12 grid-cols-[200px,auto,auto] md:grid-cols-[1fr,1fr,1fr,1fr,auto] grid-rows-[75px] gap-x-4 lg:gap-x-12 gap-y-4 justify-items-center'>
       <div className='grid items-center gap-4 text-center grid-rows-[75px] grid-cols-[75px,125px] md:grid-cols-[100px,200px] md:text-left md:h-full'>
         <img
-          src={image}
+          src={`${process.env.NEXT_PUBLIC_APP_URL}${image}`}
           alt={name}
           className='block object-cover w-full h-full rounded'
         />

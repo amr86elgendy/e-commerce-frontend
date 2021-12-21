@@ -9,30 +9,34 @@ import { FilterProvider } from '../context/filter';
 import { CartProvider } from '../context/cart';
 import { WishlistProvider } from '../context/wishlist';
 import { ToastProvider } from '../context/toast';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
   return (
     <>
       <Head>
         <link rel='icon' href='/diagram.ico' />
       </Head>
-      <UserProvider>
-        <GlobalProvider>
-          <ProductProvider>
-            <FilterProvider>
-              <CartProvider>
-                <WishlistProvider>
-                  <ToastProvider>
-                    <Layout>
-                      <Component {...pageProps} />
-                    </Layout>
-                  </ToastProvider>
-                </WishlistProvider>
-              </CartProvider>
-            </FilterProvider>
-          </ProductProvider>
-        </GlobalProvider>
-      </UserProvider>
+      <QueryClientProvider client={queryClient}>
+        <UserProvider>
+          <GlobalProvider>
+            <ProductProvider>
+              <FilterProvider>
+                <CartProvider>
+                  <WishlistProvider>
+                    <ToastProvider>
+                      <Layout>
+                        <Component {...pageProps} />
+                      </Layout>
+                    </ToastProvider>
+                  </WishlistProvider>
+                </CartProvider>
+              </FilterProvider>
+            </ProductProvider>
+          </GlobalProvider>
+        </UserProvider>
+      </QueryClientProvider>
     </>
   );
 }
