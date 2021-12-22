@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useGlobalContext } from '../context/global';
 import { useCartContext } from '../context/cart';
 import { useWishlistContext } from '../context/wishlist';
-import { useUserContext } from '../context/auth';
+import { useUserContext } from '../context/user';
 import { FaUserCheck, FaSearch, FaUserLock, FaUserAlt } from 'react-icons/fa';
 import { IoLogOut } from 'react-icons/io5';
 import { FiHeart, FiShoppingCart } from 'react-icons/fi';
@@ -66,15 +66,17 @@ const Navbar = () => {
             >
               <FaUserCheck size={25} />
               <ul
-                className={`absolute right-0 transition-all duration-200 bg-white top-10 shadow-sort w-24 ${
+                className={`absolute right-0 transition-all duration-200 bg-white top-10 shadow-sort w-28 ${
                   openMyInfo
                     ? 'opacity-100 visible scale-100'
                     : 'scale-75 opacity-0 invisible'
                 }`}
               >
-                <li className='py-3 pl-3 text-sm text-left text-gray-500 capitalize transition-all duration-200 hover:bg-gray-100'>
-                  <FaUserAlt className='inline-block' /> profile
-                </li>
+                <Link href='/profile'>
+                  <li className='py-3 pl-3 text-sm text-left text-gray-500 capitalize transition-all duration-200 hover:bg-gray-100'>
+                    <FaUserAlt className='inline-block' /> profile
+                  </li>
+                </Link>
                 <li
                   className='py-3 pl-3 text-sm text-left text-gray-500 capitalize transition-all duration-200 hover:bg-gray-100'
                   onClick={handleLogout}

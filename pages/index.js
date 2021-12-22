@@ -8,7 +8,7 @@ export default function Home({ bestSeller, newArrival }) {
   return (
     <div>
       <Head>
-        <title>E-Commerce</title>
+        <title>i Shop | Home</title>
       </Head>
       <Header />
       <NewArrival products={newArrival} />

@@ -20,7 +20,7 @@ const index = ({ products }) => {
   return (
     <>
       <Head>
-        <title>Elgendy E-Commerce | Our Products</title>
+        <title>i Shop | Our Products</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='author' content='Amr Elgendy' />
         <meta name='description' content='e-commerce website' />

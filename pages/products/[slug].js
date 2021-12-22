@@ -19,7 +19,7 @@ const ProductDetails = ({ product }) => {
     brand,
     description,
     images,
-    rating,
+    averageRating,
     numReviews,
     price,
     quantity,
@@ -45,7 +45,7 @@ const ProductDetails = ({ product }) => {
             <ProductImages images={images} />
             <section>
               <h2 className='mb-4 text-xl font-semibold sm:text-3xl'>{name}</h2>
-              <Star rating={rating} numReviews={numReviews} />
+              <Star rating={averageRating} numReviews={numReviews} />
               <h5 className='my-4 text-lg text-primary'>{price}</h5>
               <p className='mb-4 leading-loose text-paragraph'>{description}</p>
               <p

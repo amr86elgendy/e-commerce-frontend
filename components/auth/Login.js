@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useGlobalContext } from '../../context/global';
-import { useUserContext } from '../../context/auth';
+import { useUserContext } from '../../context/user';
 import { useLogin } from '../../apis/auth';
 import Button from '../helpers/RippleButton'
 import Register from './Register';

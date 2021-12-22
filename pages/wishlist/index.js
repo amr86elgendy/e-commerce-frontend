@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useUserContext } from '../context/auth';
-import { useWishlistContext } from '../context/wishlist';
-import Breadcrumb from '../components/helpers/Breadcrumb';
-import WishlistContent from '../components/wishlist/WishlistContent';
+import { useUserContext } from '../../context/user';
+import { useWishlistContext } from '../../context/wishlist';
+import Breadcrumb from '../../components/helpers/Breadcrumb';
+import WishlistContent from '../../components/wishlist/WishlistContent';
 // import { useToastContext } from '../context/toast';
 // import { v4 as uuidv4 } from 'uuid';
 import { FiHeart } from 'react-icons/fi';
@@ -38,7 +38,7 @@ const wishlist = () => {
     return (
       <>
         <Head>
-          <title>Elgendy E-Commerce | Wishlist</title>
+          <title>i Shop | Wishlist</title>
           <meta
             name='viewport'
             content='initial-scale=1.0, width=device-width'

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../helpers/RippleButton';
 import { useGlobalContext } from '../../context/global';
-import { useUserContext } from '../../context/auth';
+import { useUserContext } from '../../context/user';
 import { useRegister } from '../../apis/auth';
 
 const Register = ({ authStatus, setAuthStatus }) => {

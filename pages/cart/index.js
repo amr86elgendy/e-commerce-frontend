@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import React from 'react';
-import CartContent from '../components/cart/CartContent';
-import { useCartContext } from '../context/cart';
-import Breadcrumb from '../components/helpers/Breadcrumb';
+import CartContent from '../../components/cart/CartContent';
+import { useCartContext } from '../../context/cart';
+import Breadcrumb from '../../components/helpers/Breadcrumb';
 import { useRouter } from 'next/router';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 
@@ -46,7 +46,7 @@ const cart = () => {
   return (
     <>
       <Head>
-        <title>Elgendy E-Commerce | Cart</title>
+        <title>i Shop | Cart</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='author' content='Amr Elgendy' />
         <meta name='description' content='e-commerce website' />

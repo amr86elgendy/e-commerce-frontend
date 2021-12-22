@@ -2,7 +2,7 @@ import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
 import Head from 'next/head';
 import Layout from '../layout';
-import { UserProvider } from '../context/auth';
+import { UserProvider } from '../context/user';
 import { GlobalProvider } from '../context/global';
 import { ProductProvider } from '../context/product';
 import { FilterProvider } from '../context/filter';
@@ -17,6 +17,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel='icon' href='/diagram.ico' />
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name='author' content='Amr Elgendy' />
       </Head>
       <QueryClientProvider client={queryClient}>
         <UserProvider>

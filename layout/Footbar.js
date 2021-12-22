@@ -1,27 +1,37 @@
-import React from "react";
-import { FaSearch, FaUserCheck, FaUserLock } from 'react-icons/fa';
-import Link from "next/link";
-import { FiHeart, FiShoppingCart } from "react-icons/fi";
-import { useGlobalContext } from "../context/global";
-import { useCartContext } from "../context/cart";
-import { useWishlistContext } from "../context/wishlist";
-import { useUserContext } from "../context/auth";
+import React from 'react';
+import { FaSearch, FaUserCheck, FaUserLock, FaUserAlt } from 'react-icons/fa';
+import Link from 'next/link';
+import { FiHeart, FiShoppingCart } from 'react-icons/fi';
+import { useGlobalContext } from '../context/global';
+import { useCartContext } from '../context/cart';
+import { useWishlistContext } from '../context/wishlist';
+import { useUserContext } from '../context/user';
+import { IoLogOut } from 'react-icons/io5';
+import { logout } from '../apis/auth';
 
 const Footbar = () => {
   const { dispatch } = useGlobalContext();
   const { total_items } = useCartContext();
   const { wishlist } = useWishlistContext();
-  const { isAuthenticated } = useUserContext();
-  
+  const { isAuthenticated, dispatch: dispatchUser } = useUserContext();
+
+  const handleLogout = async () => {
+    await logout();
+    localStorage.removeItem('ishop-token');
+    dispatchUser('LOGOUT');
+  };
+
   return (
     <nav className='fixed bottom-0 left-0 right-0 pt-3 pb-2 bg-white shadow-footbar sm:hidden'>
       <div className='container flex justify-around text-xs text-gray-700'>
+        {isAuthenticated && (
+          <button className='capitalize' onClick={handleLogout}>
+            <IoLogOut size={23} className='mx-auto' /> log out
+          </button>
+        )}
         {isAuthenticated ? (
-          <button
-            className='capitalize'
-            // onClick={}
-          >
-            <FaUserCheck size={23} className='mx-auto' /> account
+          <button className='capitalize'>
+            <FaUserAlt size={22} className='mx-auto' /> profile
           </button>
         ) : (
           <button

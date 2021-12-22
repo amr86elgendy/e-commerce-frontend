@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
 import { useUserContext } from '../context/auth';
-import { useToastContext } from '../context/toast';
+import { useToastContext } from '../../context/toast';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';
-import Breadcrumb from '../components/helpers/Breadcrumb';
-import Button from '../components/helpers/RippleButton';
+import Breadcrumb from '../../components/helpers/Breadcrumb';
+import Button from '../../components/helpers/RippleButton';
 
 const Contact = () => {
   const { user } = useUserContext();

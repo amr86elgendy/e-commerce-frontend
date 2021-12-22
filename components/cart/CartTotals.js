@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useCartContext } from '../../context/cart';
-import { useUserContext } from '../../context/auth';
+import { useUserContext } from '../../context/user';
 
 const CartTotals = () => {
   const { dispatch, user } = useUserContext();

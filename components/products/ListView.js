@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Star from './Star';
 
 const ListView = ({ products }) => {
+  console.log(products);
   return (
     <section className='grid px-5 mb-16 gap-y-12'>
       {products.map((product) => {
@@ -12,7 +13,7 @@ const ListView = ({ products }) => {
           name,
           price,
           description,
-          rating,
+          averageRating,
           numReviews,
           slug,
         } = product;
@@ -37,7 +38,7 @@ const ListView = ({ products }) => {
               <p className='mb-4 text-gray-500'>
                 {description.substring(0, 150)}...
               </p>
-              <Star rating={rating} numReviews={numReviews} />
+              <Star rating={averageRating} numReviews={numReviews} />
               <Link href={`/products/${slug}?id=${_id}`}>
                 <button className='px-4 py-1.5 mt-4 btn btn-primary'>
                   Details

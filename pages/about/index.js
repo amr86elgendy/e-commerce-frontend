@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Breadcrumb from '../components/helpers/Breadcrumb';
+import Breadcrumb from '../../components/helpers/Breadcrumb';
 import Head from 'next/head';
 
 const About = () => {
@@ -10,7 +10,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>Elgendy E-Commerce | About Us</title>
+        <title>i Shop | About Us</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta name='author' content='Amr Elgendy' />
         <meta name='description' content='e-commerce website' />
