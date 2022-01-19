@@ -22,7 +22,7 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
         />
         <div>
           <h5 className='text-xs md:text-sm'>{name.substring(0, 20)}</h5>
-          <p className='flex items-center justify-center text-xs tracking-wider text-gray-400 capitalize md:text-sm'>
+          <p className='flex items-center text-xs tracking-wider text-gray-400 capitalize md:text-sm'>
             color :
             <span
               className='inline-block w-2 h-2 ml-2 rounded md:w-3 md:h-3'

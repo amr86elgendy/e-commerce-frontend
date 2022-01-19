@@ -3,6 +3,7 @@ import Head from 'next/head';
 import BestSeller from '../components/home/BestSeller';
 import Header from '../components/home/Header';
 import NewArrival from '../components/home/NewArrival';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home({ bestSeller, newArrival }) {
   return (
@@ -17,7 +18,7 @@ export default function Home({ bestSeller, newArrival }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ locale }) {
   const {
     data: { products: newArrival },
   } = await axios.get(
@@ -33,6 +34,7 @@ export async function getServerSideProps() {
     props: {
       newArrival,
       bestSeller,
+      ...(await serverSideTranslations(locale, ['common', 'home'])),
     },
   };
 }

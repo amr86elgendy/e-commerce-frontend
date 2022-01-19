@@ -4,10 +4,12 @@ import { FaChevronUp } from 'react-icons/fa';
 const ScrollToTop = () => {
   const [showBtn, setShowBtn] = useState(false);
 
+  const handleShowBtn = () =>
+    window.pageYOffset >= 560 ? setShowBtn(true) : setShowBtn(false);
+
   useEffect(() => {
-    window.addEventListener('scroll', () =>
-      window.pageYOffset >= 560 ? setShowBtn(true) : setShowBtn(false)
-    );
+    window.addEventListener('scroll', handleShowBtn);
+    return () => window.removeEventListener('scroll', handleShowBtn);
   }, []);
 
   return (

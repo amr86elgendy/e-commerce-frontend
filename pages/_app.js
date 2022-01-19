@@ -1,5 +1,6 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
+import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Layout from '../layout';
 import { UserProvider } from '../context/user';
@@ -43,4 +44,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp
+export default appWithTranslation(MyApp);

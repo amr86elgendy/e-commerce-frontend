@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa';
-import { useUserContext } from '../context/auth';
+import { useUserContext } from '../../context/user';
 import { useToastContext } from '../../context/toast';
 import { v4 as uuidv4 } from 'uuid';
 import { useRouter } from 'next/router';

@@ -9,8 +9,11 @@ import {
 } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi'
 import 'flag-icon-css/css/flag-icon.min.css';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Topbar = () => {
+  const { asPath, locale } = useRouter();
   return (
     <nav className='py-1 text-white bg-primary'>
       <div className='container grid items-center grid-cols-2 px-4 lg:grid-cols-3'>
@@ -27,15 +30,19 @@ const Topbar = () => {
             </ul>
           </li>
           <li className='relative text-sm uppercase cursor-pointer top-left-links'>
-            <span className='m-1 flag-icon flag-icon-us'></span> Eng
-            <ul>
-              <li className='p-2 mb-2 text-gray-500 hover:bg-gray-100'>
-                <span className='m-1 flag-icon flag-icon-us'></span> Eng
-              </li>
-              <li className='p-2 text-gray-500 hover:bg-gray-100'>
-                <span className='m-1 flag-icon flag-icon-eg'></span> العربية
-              </li>
-            </ul>
+            {locale !== 'en' ? (
+              <Link href={asPath} locale='en'>
+                <a>
+                  <span className='m-1 flag-icon flag-icon-us'></span> Eng
+                </a>
+              </Link>
+            ) : (
+              <Link href={asPath} locale='ar'>
+                <a>
+                  <span className='m-1 flag-icon flag-icon-eg'></span> العربية
+                </a>
+              </Link>
+            )}
           </li>
         </ul>
         <div className='hidden lg:block justify-self-center'>
