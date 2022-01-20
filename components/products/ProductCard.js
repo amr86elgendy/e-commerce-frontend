@@ -72,12 +72,12 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className='relative card'>
-      <figure className='relative w-full overflow-hidden min-h-80'>
+      <figure className='relative w-full overflow-hidden'>
         <Image
           src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
           alt={name}
-          width={350}
-          height={400}
+          width={200}
+          height={150}
           layout='responsive'
           className='object-cover object-center w-full h-full transition-all duration-1000 ease-in-out lg:w-full lg:h-full'
         />

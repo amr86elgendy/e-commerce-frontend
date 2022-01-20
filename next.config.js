@@ -6,6 +6,14 @@ module.exports = () => {
     images: {
       domains: ['elgendy-ecommerce.herokuapp.com'],
     },
-    i18n,
+    i18n: {
+      ...i18n,
+      domains: [
+        {
+          domain: 'elgendy-e-commerce.vercel.app.ar',
+          defaultLocale: 'ar',
+        },
+      ],
+    },
   };
 };

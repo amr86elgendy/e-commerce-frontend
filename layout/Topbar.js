@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaMoneyBillWaveAlt,
-  FaDollarSign,
-  FaPoundSign,
-} from 'react-icons/fa';
-import { FiPhoneCall } from 'react-icons/fi'
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FiPhoneCall } from 'react-icons/fi';
 import 'flag-icon-css/css/flag-icon.min.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -17,34 +10,31 @@ const Topbar = () => {
   return (
     <nav className='py-1 text-white bg-primary'>
       <div className='container grid items-center grid-cols-2 px-4 lg:grid-cols-3'>
-        <ul className='flex'>
-          <li className='relative mr-3 text-sm cursor-pointer top-left-links'>
-            <FaMoneyBillWaveAlt className='inline-block' /> USD
-            <ul>
-              <li className='p-2 mb-1 text-gray-500 hover:bg-gray-100'>
-                <FaDollarSign className='inline-block' /> USD
-              </li>
-              <li className='p-2 text-gray-500 hover:bg-gray-100'>
-                <FaPoundSign className='inline-block' /> EGP
-              </li>
-            </ul>
-          </li>
-          <li className='relative text-sm uppercase cursor-pointer top-left-links'>
-            {locale !== 'en' ? (
-              <Link href={asPath} locale='en'>
-                <a>
-                  <span className='m-1 flag-icon flag-icon-us'></span> Eng
-                </a>
-              </Link>
-            ) : (
-              <Link href={asPath} locale='ar'>
-                <a>
-                  <span className='m-1 flag-icon flag-icon-eg'></span> العربية
-                </a>
-              </Link>
-            )}
-          </li>
-        </ul>
+        <div className='flex items-center'>
+          <Link href={asPath} locale='ar'>
+            <a
+              className={`text-xs capitalize ${
+                locale === 'ar' && 'opacity-50'
+              }`}
+            >
+              عربي{' '}
+              <span className='m-1 rounded-full flag-icon flag-icon-eg'></span>
+            </a>
+          </Link>
+          <span className='items-center hidden mx-2 text-gray-200 sm:flex'>
+            |
+          </span>
+          <Link href={asPath} locale='en'>
+            <a
+              className={`text-xs capitalize ${
+                locale === 'en' && 'opacity-50'
+              }`}
+            >
+              english{' '}
+              <span className='m-1 rounded-full flag-icon flag-icon-gb'></span>
+            </a>
+          </Link>
+        </div>
         <div className='hidden lg:block justify-self-center'>
           Summer sale discount off 50% !
         </div>

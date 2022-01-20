@@ -7,7 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home({ bestSeller, newArrival }) {
   return (
-    <div>
+    <div className='container px-4'>
       <Head>
         <title>i Shop | Home</title>
       </Head>
@@ -22,13 +22,13 @@ export async function getServerSideProps({ locale }) {
   const {
     data: { products: newArrival },
   } = await axios.get(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=createdAt`
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=createdAt&limit=4`
   );
 
   const {
     data: { products: bestSeller },
   } = await axios.get(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=sold`
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/products?sort=sold&limit=4`
   );
   return {
     props: {

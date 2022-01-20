@@ -10,7 +10,7 @@ const Sortbar = () => {
   const [openSort, setOpenSort] = useState(false);
 
   return (
-    <div className='grid items-center grid-cols-3 px-2 py-4'>
+    <div className='grid items-center grid-cols-3 py-4'>
       {/* FILTER BUTTON */}
       <div className='capitalize'>
         <div

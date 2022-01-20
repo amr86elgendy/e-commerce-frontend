@@ -5,14 +5,13 @@ import ProductCard from '../products/ProductCard';
 const BestSeller = ({ products }) => {
   const { t } = useTranslation();
   return (
-    <section className='px-5 py-20 bg-gray-100'>
-      <h1
-        className='mb-3 italic font-bold tracking-wider text-center uppercase md:text-4xl'
-      >
-        {t('home:best-seller')}
-      </h1>
-      <div className='w-24 h-1 mx-auto bg-secondary'></div>
-      <div className='grid gap-10 my-16 sm:grid-cols-2 xmd:grid-cols-3 xl:grid-cols-4'>
+    <section className='py-2'>
+      <header className='py-4 bg-gray-100 rounded-t-md'>
+        <h1 className='italic font-bold tracking-wider text-center text-gray-400 uppercase md:text-4xl'>
+          {t('home:best-seller')}
+        </h1>
+      </header>
+      <div className='grid gap-10 my-2 sm:grid-cols-2 xmd:grid-cols-3 xl:grid-cols-4'>
         {products.map((product) => (
           <ProductCard key={product._id} product={product} />
         ))}
