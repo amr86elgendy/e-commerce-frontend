@@ -6,7 +6,7 @@ const NewArrival = ({ products }) => {
   return (
     <section className='py-20'>
       <header className='py-4 bg-gray-100 rounded-t-md'>
-        <h1 className='italic font-bold tracking-wider text-center text-gray-400 uppercase md:text-4xl'>
+        <h1 className='italic font-bold tracking-wider text-center text-gray-400 uppercase'>
           {/* {t('home:latest-products')} */}
           latest-products
         </h1>

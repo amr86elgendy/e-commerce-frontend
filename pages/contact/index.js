@@ -72,7 +72,7 @@ const Contact = () => {
         <div className='w-24 h-1 mx-auto mb-8 lg:col-span-2 bg-secondary'></div>
         <div className='sm:px-5'>
           <h1
-            className={`capitalize text-secondary text-3xl sm:text-4xl font-semibold tracking-widest mb-2'
+            className={`capitalize text-secondary tracking-widest mb-2'
           `}
           >
             send us a message
@@ -128,7 +128,7 @@ const Contact = () => {
         </div>
         <div className='sm:px-5'>
           <h1
-            className={`capitalize text-secondary text-3xl mt-8 lg:mt-0 sm:text-4xl font-semibold tracking-widest mb-2'
+            className={`capitalize text-secondary mt-8 lg:mt-0 tracking-widest mb-2'
           `}
           >
             get office info

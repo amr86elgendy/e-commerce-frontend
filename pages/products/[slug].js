@@ -11,7 +11,7 @@ const ProductDetails = ({ product }) => {
   const { locale, pathname, query } = useRouter();
   const path = [pathname.split('/')[1], query.slug];
 
-  if (!product) return <h1 className='text-4xl'>Loading ...!</h1>;
+  if (!product) return <h1>Loading ...!</h1>;
 
   const {
     _id: SKU,
