@@ -2,11 +2,11 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Breadcrumb from '../../components/helpers/Breadcrumb';
 import Head from 'next/head';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { useTranslation } from 'next-i18next';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const About = () => {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const { pathname } = useRouter();
   const path = pathname.split('/').slice(1);
 
@@ -27,7 +27,8 @@ const About = () => {
         />
         <article>
           <h2 className='text-5xl font-semibold mb-2.5'>
-            {t('about:title-about-us')}
+            {/* {t('about:title-about-us')} */}
+            about us
           </h2>
           <div className='w-24 h-1 bg-secondary'></div>
           <p className='mx-5 mt-8 leading-loose text-gray-500 md:mx-0'>
@@ -50,10 +51,10 @@ const About = () => {
 
 export default About;
 
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['about'])),
-    },
-  };
-}
+// export async function getServerSideProps({ locale }) {
+//   return {
+//     props: {
+//       ...(await serverSideTranslations(locale, ['about'])),
+//     },
+//   };
+// }
