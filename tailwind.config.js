@@ -39,7 +39,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function ({ addComponents }) {
+    function ({ addComponents, addBase }) {
       addComponents({
         '.container': {
           width: '100%',
@@ -69,7 +69,20 @@ module.exports = {
         '.border-primary': {
           borderColor: 'var(--primary)',
           boxShadow: '0 0 0 0.25rem var(--primaryLightest)',
-
+        },
+      });
+      addBase({
+        h1: {
+          fontSize: '2.25rem',
+          fontWeight: '700',
+        },
+        h2: {
+          fontSize: '1.5rem',
+          fontWeight: '600',
+        },
+        h3: {
+          fontSize: '1.25rem',
+          fontWeight: '600',
         },
       });
     },
