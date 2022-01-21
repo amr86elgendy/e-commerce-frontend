@@ -3,7 +3,7 @@ import Head from 'next/head';
 import BestSeller from '../components/home/BestSeller';
 import Header from '../components/home/Header';
 import NewArrival from '../components/home/NewArrival';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+// import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home({ bestSeller, newArrival }) {
   return (
@@ -34,7 +34,7 @@ export async function getServerSideProps({ locale }) {
     props: {
       newArrival,
       bestSeller,
-      ...(await serverSideTranslations(locale, ['common', 'home'])),
+      // ...(await serverSideTranslations(locale, ['common', 'home'])),
     },
   };
 }
