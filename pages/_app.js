@@ -1,6 +1,5 @@
 import 'tailwindcss/tailwind.css';
 import '../styles/app.css';
-import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Layout from '../layout';
 import { UserProvider } from '../context/user';
@@ -12,8 +11,6 @@ import { WishlistProvider } from '../context/wishlist';
 import { ToastProvider } from '../context/toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-
-import nextI18NextConfig from '../next-i18next.config.js';
 
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();
@@ -47,4 +44,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default appWithTranslation(MyApp, nextI18NextConfig);
+export default MyApp;

@@ -2,9 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Breadcrumb from '../../components/helpers/Breadcrumb';
 import Head from 'next/head';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import nextI18NextConfig from '../next-i18next.config.js';
+import useTranslation from 'next-translate/useTranslation';
+
 
 const About = () => {
   const { t } = useTranslation();
@@ -52,15 +51,3 @@ const About = () => {
 
 export default About;
 
-export async function getServerSideProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(
-        locale,
-        ['common', 'about'],
-        nextI18NextConfig
-      )),
-      // Will be passed to the page component as props
-    },
-  };
-}
