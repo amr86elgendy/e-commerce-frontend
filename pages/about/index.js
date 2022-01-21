@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const About = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   const { pathname } = useRouter();
   const path = pathname.split('/').slice(1);
 
