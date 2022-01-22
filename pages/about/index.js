@@ -6,10 +6,10 @@ import useTranslation from 'next-translate/useTranslation';
 
 
 const About = () => {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const { pathname } = useRouter();
   const path = pathname.split('/').slice(1);
-
+console.log(lang);
   return (
     <>
       <Head>

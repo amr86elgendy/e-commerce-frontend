@@ -19,7 +19,7 @@ export async function getProduct(productId) {
 
 // ##########################################################
 
-export async function getNewArrivalProducts() {
+export async function getLatestProducts() {
   return await axios.get(`${process.env.URL}/api/products/new-arrival`);
 }
 

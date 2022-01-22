@@ -21,11 +21,7 @@ const Contact = () => {
 
   useEffect(() => {
     if (user) {
-      setName(`${user.firstname} ${user.lastname}`);
-      setEmail(user.email);
-    } else {
-      setName('');
-      setEmail('');
+      setName(user.name);
     }
   }, [user]);
 
@@ -88,9 +84,10 @@ const Contact = () => {
               </label>
               <input
                 type='text'
-                defaultValue={name}
+                value={name}
                 placeholder='Enter Your Name'
                 className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div className=''>
@@ -99,9 +96,10 @@ const Contact = () => {
               </label>
               <input
                 type='email'
-                defaultValue={email}
+                value={email}
                 placeholder='Enter Your Email'
                 className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className='sm:col-span-2'>

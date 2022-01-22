@@ -16,6 +16,7 @@ const Topbar = () => {
               className={`text-xs capitalize ${
                 locale === 'ar' && 'opacity-50'
               }`}
+              onClick={() => document.body.setAttribute('dir', 'rtl')}
             >
               عربي{' '}
               <span className='m-1 rounded-full flag-icon flag-icon-eg'></span>
@@ -29,6 +30,7 @@ const Topbar = () => {
               className={`text-xs capitalize ${
                 locale === 'en' && 'opacity-50'
               }`}
+              onClick={() => document.body.setAttribute('dir', 'ltr')}
             >
               english{' '}
               <span className='m-1 rounded-full flag-icon flag-icon-gb'></span>
@@ -40,7 +42,7 @@ const Topbar = () => {
         </div>
         <ul className='flex justify-self-end'>
           <li className='items-center hidden sm:flex'>
-            <FiPhoneCall className='mr-2' />
+            <FiPhoneCall className='ltr:mr-2 rtl:ml-2' />
             0123456789
           </li>
           <span className='items-center hidden mx-2 text-gray-200 sm:flex'>

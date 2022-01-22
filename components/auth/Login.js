@@ -8,8 +8,8 @@ import Register from './Register';
 
 const Login = () => {
   const [authStatus, setAuthStatus] = useState('login');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('amr@tawfik.com');
+  const [password, setPassword] = useState('123456');
   const { mutate: login, isLoading, isError, error } = useLogin()
   
   const { dispatch: dispatchGlobal } = useGlobalContext();

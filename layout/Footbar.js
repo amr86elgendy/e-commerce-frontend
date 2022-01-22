@@ -22,7 +22,7 @@ const Footbar = () => {
   };
 
   return (
-    <nav className='fixed bottom-0 left-0 right-0 pt-3 pb-2 bg-white shadow-footbar sm:hidden'>
+    <nav className='fixed bottom-0 left-0 right-0 pt-3 pb-2 bg-white shadow-footbar md:hidden'>
       <div className='container flex justify-around text-xs text-gray-700'>
         {isAuthenticated && (
           <button className='capitalize' onClick={handleLogout}>

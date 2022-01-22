@@ -18,6 +18,7 @@ module.exports = {
         footbar: '0 -1px 5px rgb(0 0 0 / 10%)',
         card: '0 1px 3px #00000026',
         input: '0 0 0 0.25rem rgb(244 63 94 / 25%)',
+        nav: '0 11px 10px -10px rgb(85 85 85 / 40%)',
       },
       animation: {
         ripple: 'ripple 1s linear infinite',

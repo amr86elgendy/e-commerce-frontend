@@ -1,7 +1,7 @@
 import ProductCard from '../products/ProductCard';
 import useTranslation from 'next-translate/useTranslation';
 
-const NewArrival = ({ products }) => {
+const LatestProducts = ({ products }) => {
   const { t } = useTranslation()
   return (
     <section className='py-20'>
@@ -19,4 +19,4 @@ const NewArrival = ({ products }) => {
   );
 };
 
-export default NewArrival;
+export default LatestProducts;
