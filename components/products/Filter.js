@@ -34,7 +34,7 @@ const Filter = () => {
           value={text}
           placeholder='Search...'
           onChange={updateFilters}
-          className='block w-10/12 px-3 py-2 mt-6 border-2 border-gray-300 rounded focus:outline-none focus:border-primary'
+          className='block w-10/12 px-3 py-2 mt-6 border-2 border-gray-300 rounded focus:outline-none focus:border-primary focus:shadow-primary'
         />
       </div>
       {/* CATEGORY */}

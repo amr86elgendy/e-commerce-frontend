@@ -86,7 +86,7 @@ const Contact = () => {
                 type='text'
                 value={name}
                 placeholder='Enter Your Name'
-                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary focus:shadow-primary'
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -98,7 +98,7 @@ const Contact = () => {
                 type='email'
                 value={email}
                 placeholder='Enter Your Email'
-                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary focus:shadow-primary'
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder='Write Your Message Here ...'
-                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary'
+                className='w-full px-4 py-2 mt-2 border border-gray-300 rounded focus:outline-none focus:border-primary focus:shadow-primary'
               />
             </div>
             <Button

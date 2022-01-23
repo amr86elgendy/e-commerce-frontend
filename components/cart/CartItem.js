@@ -25,7 +25,7 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
           <p className='flex items-center text-xs tracking-wider text-gray-400 capitalize md:text-sm'>
             color :
             <span
-              className='inline-block w-2 h-2 ml-2 rounded md:w-3 md:h-3'
+              className='inline-block w-2 h-2 rounded ltr:ml-2 rtl:mr-2 md:w-3 md:h-3'
               style={{ background: color }}
             />
           </p>

@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation';
 
 const Breadcrumb = ({ path }) => {
-  
+  const { t } = useTranslation();
   return (
     <nav className='items-center hidden h-20 bg-gray-100 md:flex hover:bg-gray-50'>
       <div className='container'>
-        <ul className='flex pl-4'>
+        <ul className='flex ltr:pl-4 rtl:pr-4'>
           <li>
             <Link href='/'>
-              <a className='mr-2 text-primary'>Home</a>
+              <a className='ltr:mr-2 rtl:ml-2 text-primary'>
+                {t('common:home')}
+              </a>
             </Link>
           </li>
           {path.map((name, i) => {
@@ -18,12 +20,18 @@ const Breadcrumb = ({ path }) => {
               return (
                 <li key={i}>
                   <Link href={'/' + name}>
-                    <a className='mr-2 text-primary'>/ {name}</a>
+                    <a className='ltr:mr-2 rtl:ml-2 text-primary'>
+                      / {name.includes('-') ? name : t(`common:${name}`)}
+                    </a>
                   </Link>
                 </li>
               );
             } else {
-              return <li key={i}>/ {name}</li>;
+              return (
+                <li key={i}>
+                  / {name.includes('-') ? name : t(`common:${name}`)}
+                </li>
+              );
             }
           })}
         </ul>

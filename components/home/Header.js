@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <section className='h-screen pt-4'>
+    <section className='min-h-screen pt-4'>
       <img
         src={`${process.env.NEXT_PUBLIC_APP_URL}/uploads/albany sectional.jpg`}
         alt=''

@@ -2,8 +2,8 @@ import ProductCard from '../products/ProductCard';
 import useTranslation from 'next-translate/useTranslation';
 
 const BestSeller = ({ products }) => {
-  const { t, lang } = useTranslation();
-  console.log(lang);
+  const { t } = useTranslation();
+  
   return (
     <section className='py-2'>
       <header className='py-4 bg-gray-100 rounded-t-md'>

@@ -4,9 +4,11 @@ import { FiPhoneCall } from 'react-icons/fi';
 import 'flag-icon-css/css/flag-icon.min.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useTranslation from 'next-translate/useTranslation'
 
 const Topbar = () => {
   const { asPath, locale } = useRouter();
+  const { t } = useTranslation()
   return (
     <nav className='py-1 text-white bg-primary'>
       <div className='container grid items-center grid-cols-2 px-4 lg:grid-cols-3'>
@@ -38,7 +40,7 @@ const Topbar = () => {
           </Link>
         </div>
         <div className='hidden lg:block justify-self-center'>
-          Summer sale discount off 50% !
+          {t('common:topbar-sale')}
         </div>
         <ul className='flex justify-self-end'>
           <li className='items-center hidden sm:flex'>

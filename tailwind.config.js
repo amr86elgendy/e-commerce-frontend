@@ -67,9 +67,11 @@ module.exports = {
         '.bg-primary-light': {
           backgroundColor: 'var(--primaryLightest)',
         },
+        '.shadow-primary': {
+          boxShadow: '0 0 0 0.25rem var(--primaryLightest)',
+        },
         '.border-primary': {
           borderColor: 'var(--primary)',
-          boxShadow: '0 0 0 0.25rem var(--primaryLightest)',
         },
       });
       addBase({

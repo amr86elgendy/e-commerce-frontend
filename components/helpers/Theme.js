@@ -20,9 +20,6 @@ const Theme = () => {
       </div>
       <div className='absolute top-0 left-0 p-2 transition-all duration-200 -translate-x-full bg-black rounded-r group-hover:translate-x-0'>
         <ul className='flex'>
-          <li className='mr-2 text-white capitalize whitespace-nowrap'>
-            theme color
-          </li>
           {themeColors.map((c, i) => (
             <li
               key={i}
