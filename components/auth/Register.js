@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { AiOutlineClose } from 'react-icons/ai';
 import Button from '../helpers/RippleButton';
 import { useGlobalContext } from '../../context/global';
@@ -6,6 +7,7 @@ import { useUserContext } from '../../context/user';
 import { useRegister } from '../../apis/auth';
 
 const Register = ({ authStatus, setAuthStatus }) => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -38,22 +40,25 @@ const Register = ({ authStatus, setAuthStatus }) => {
         ${
           authStatus === 'register'
             ? 'translate-x-0 visible pointer-events-auto'
-            : 'translate-x-full invisible pointer-events-none'
+            : 'ltr:translate-x-full rtl:-translate-x-full invisible pointer-events-none'
         }
       `}
       onSubmit={handleSubmit}
     >
       <div className='flex justify-between p-4 border-b'>
         <h3 className='font-semibold tracking-wider uppercase text-primary'>
-          register
+          {t('common:register')}
         </h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-          onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
+          onClick={() => dispatchGlobal('CLOSE_SIDEBAR_RIGHT')}
         />
       </div>
       <div className='px-4 py-2 mt-3'>
-        <label className={`font-light text-gray-500`}>Name</label>
+        <label className='font-light text-gray-500 capitalize'>
+          {t('common:name')}
+          <span className='text-red-500'>*</span>
+        </label>
         <input
           type='text'
           className={`w-full mt-2 p-2 border outline-none ${
@@ -68,8 +73,8 @@ const Register = ({ authStatus, setAuthStatus }) => {
       </div>
 
       <div className='px-4 py-2'>
-        <label className='font-light text-gray-500'>
-          Email
+        <label className='font-light text-gray-500 capitalize'>
+          {t('common:email')}
           <span className='text-red-500'>*</span>
         </label>
         <input
@@ -87,8 +92,8 @@ const Register = ({ authStatus, setAuthStatus }) => {
         </small>
       </div>
       <div className='px-4 py-2'>
-        <label className={`font-light text-gray-500`}>
-          Password
+        <label className='font-light text-gray-500 capitalize'>
+          {t('common:password')}
           <span className='text-red-500'>*</span>
         </label>
         <input
@@ -107,15 +112,15 @@ const Register = ({ authStatus, setAuthStatus }) => {
       </div>
       <div className='p-4'>
         <Button className='w-full px-4 py-2 my-2 btn-primary' type='submit'>
-          Register
+          {t('common:register')}
         </Button>
         <h5 className='my-4 text-sm'>
-          Already have an account?
+          {t('common:already-have-an-account')}
           <span
-            className='inline-block ml-2 text-xs cursor-pointer sm:text-sm text-primary'
+            className='inline-block text-xs cursor-pointer ltr:ml-2 rtl:mr-2 sm:text-sm text-primary'
             onClick={() => setAuthStatus('login')}
           >
-            Login here
+            {t('common:login-here')}
           </span>
         </h5>
       </div>

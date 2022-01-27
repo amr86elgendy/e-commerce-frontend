@@ -16,7 +16,7 @@ import MenuButton from '../components/helpers/MenuButton';
 const Navbar = () => {
   const { dispatch } = useGlobalContext();
   const { total_items } = useCartContext();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const { isAuthenticated, dispatch: dispatchUser, user } = useUserContext();
 
   const [openMyInfo, setOpenMyInfo] = useState(false);
@@ -139,7 +139,11 @@ const Navbar = () => {
           >
             <FiShoppingCart size={22} className='ltr:mr-1 rtl:ml-1' />
             {t('common:cart')}
-            <span className='absolute flex items-center justify-center w-5 h-5 text-sm text-white border-2 border-white rounded-full bg-primary -top-2 rtl:right-2 ltr:right-8'>
+            <span
+              className={`absolute flex items-center justify-center w-5 h-5 text-sm text-white border-2 border-white rounded-full bg-primary -top-2 ${
+                lang === 'en' ? 'right-8' : 'right-2 '
+              }`}
+            >
               {total_items}
             </span>
           </li>

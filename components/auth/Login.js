@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { useGlobalContext } from '../../context/global';
 import { useUserContext } from '../../context/user';
@@ -7,6 +8,7 @@ import Button from '../helpers/RippleButton'
 import Register from './Register';
 
 const Login = () => {
+  const { t } = useTranslation()
   const [authStatus, setAuthStatus] = useState('login');
   const [email, setEmail] = useState('amr@tawfik.com');
   const [password, setPassword] = useState('123456');
@@ -33,21 +35,23 @@ const Login = () => {
         ${
           authStatus === 'login'
             ? 'translate-x-0 visible pointer-events-auto'
-            : 'translate-x-full invisible pointer-events-none'
+            : 'ltr:translate-x-full rtl:-translate-x-full invisible pointer-events-none'
         }
       `}
         onSubmit={handleSubmit}
       >
         <div className='flex justify-between p-4 border-b'>
-          <h3 className='tracking-wider uppercase text-primary'>login</h3>
+          <h3 className='tracking-wider uppercase text-primary'>
+            {t('common:login')}
+          </h3>
           <AiOutlineClose
             className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
             onClick={() => dispatchGlobal('CLOSE_SIDEBAR_RIGHT')}
           />
         </div>
         <div className='p-4 mt-3'>
-          <label className='font-light text-gray-500'>
-            Email
+          <label className='font-light text-gray-500 capitalize'>
+            {t('common:email')}
             <span className='text-red-500'>*</span>
           </label>
           <input
@@ -65,8 +69,8 @@ const Login = () => {
           </small>
         </div>
         <div className='p-4'>
-          <label className='font-light text-gray-500'>
-            Password
+          <label className='font-light text-gray-500 capitalize'>
+            {t('common:password')}
             <span className='text-red-500'>*</span>
           </label>
           <input
@@ -88,15 +92,15 @@ const Login = () => {
             className='w-full px-4 py-2 my-2 tracking-wide uppercase btn-primary'
             type='submit'
           >
-            sign in
+            {t('common:sign-in')}
           </Button>
           <h5 className='my-4'>
-            New customer?
+            {t('common:new-customer')}
             <span
-              className='inline-block ml-2 text-xs cursor-pointer sm:text-sm text-primary'
+              className='inline-block text-xs cursor-pointer ltr:ml-2 rtl:mr-2 sm:text-sm text-primary'
               onClick={() => setAuthStatus('register')}
             >
-              Create your account
+              {t('common:create-new-account')}
             </span>
           </h5>
         </div>
