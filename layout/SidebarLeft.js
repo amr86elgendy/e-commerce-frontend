@@ -6,7 +6,7 @@ const SidebarLeft = ({ children }) => {
   const { locale } = useRouter()
   return (
     <div
-      className={`fixed top-0 bottom-0 h-full w-full max-w-xs bg-white shadow-2xl transition-all duration-300 z-50 overflow-y-scroll ${
+      className={`fixed top-0 bottom-0 h-full w-full sm:max-w-xs bg-white shadow-2xl transition-all duration-300 z-50 overflow-y-scroll ${
         openSidebarLeft
           ? 'translate-x-0 visible'
           : locale === 'en'

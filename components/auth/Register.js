@@ -36,7 +36,7 @@ const Register = ({ authStatus, setAuthStatus }) => {
 
   return (
     <form
-      className={`absolute top-0 left-0 transition-all duration-300
+      className={`absolute top-0 left-0 transition-all duration-300 w-full
         ${
           authStatus === 'register'
             ? 'translate-x-0 visible pointer-events-auto'

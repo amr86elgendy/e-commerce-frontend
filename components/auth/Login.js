@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className='w-full overflow-hidden'>
       <form
-        className={`absolute top-0 left-0 transition-all duration-300
+        className={`absolute top-0 left-0 transition-all duration-300 w-full
         ${
           authStatus === 'login'
             ? 'translate-x-0 visible pointer-events-auto'

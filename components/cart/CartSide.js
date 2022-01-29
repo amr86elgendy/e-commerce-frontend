@@ -3,17 +3,21 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/global';
 import { useCartContext } from '../../context/cart';
-import Button from '../helpers/RippleButton';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
+import Button from '../helpers/RippleButton';
+import useTranslation from 'next-translate/useTranslation'
 
 const CartSide = () => {
+  const { t } = useTranslation();
   const { dispatch } = useGlobalContext();
   const { toggleAmount, total_amount, cart, removeItem } = useCartContext();
 
   return (
     <div className={`flex flex-col ${cart.length && 'justify-between'} h-full`}>
       <div className='flex justify-between p-4 border-b'>
-        <h3 className='tracking-wider uppercase text-primary'>shopping cart</h3>
+        <h3 className='tracking-wider uppercase text-primary'>
+          {t('common:cart')}
+        </h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
           onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
@@ -23,14 +27,14 @@ const CartSide = () => {
         <div className='flex flex-col items-center'>
           <HiOutlineShoppingBag size={60} color='gray' className='my-4' />
           <h3 className='mb-8 font-normal tracking-wider uppercase'>
-            your cart is empty
+            {t('cart:empty-cart')}
           </h3>
           <Link href='/products'>
             <button
               className='px-6 py-2 tracking-widest uppercase btn btn-primary'
               onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
             >
-              return to shop
+              {t('cart:return-to-shop')}
             </button>
           </Link>
         </div>
@@ -56,7 +60,7 @@ const CartSide = () => {
                   >
                     {item.name}
                   </a>
-                  <div className='text-sm text-gray-500'>${item.price}</div>
+                  <div className='text-sm text-gray-500'>EGP {item.price}</div>
                   <div className='flex flex-col items-center mt-4'>
                     <div className='grid items-center w-32 h-10 grid-cols-3 justify-items-center'>
                       <button
@@ -88,11 +92,11 @@ const CartSide = () => {
           </div>
           <div className='p-5 border-t border-gray-300 shadow-md'>
             <div className='flex justify-between'>
-              <h3 className='capitalize'>subtotal :</h3>
-              <p>${total_amount}</p>
+              <h3 className='capitalize'>{t('cart:total')} :</h3>
+              <p>EGP {total_amount}</p>
             </div>
             <p className='my-3 text-sm font-light leading-6'>
-              Taxes, shipping and discounts codes calculated at checkout
+              {t('cart:total-desc')}
             </p>
             <Link href='/cart'>
               <a>
@@ -100,12 +104,12 @@ const CartSide = () => {
                   className='w-full p-2 mb-4 uppercase bg-gray-200 hover:bg-gray-300'
                   onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
                 >
-                  view cart
+                  {t('cart:view-cart')}
                 </Button>
               </a>
             </Link>
             <Button className='w-full p-2 uppercase btn-primary'>
-              check out
+              {t('cart:check-out')}
             </Button>
           </div>
         </>
