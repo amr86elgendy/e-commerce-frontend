@@ -2,9 +2,9 @@ import React from 'react'
 
 const checkout = () => {
   return (
-    <div>
-      checkout page
-    </div>
+    <section className='min-h-[calc(100vh-150px)]'>
+      checkout pagehjggggggggggggg
+    </section>
   )
 }
 

@@ -1,10 +1,11 @@
 import React from 'react';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import { useCartContext } from '../../context/cart';
+import useTranslation from 'next-translate/useTranslation';
 
 const CartItem = ({ _id, image, name, color, price, amount }) => {
   const { removeItem, toggleAmount } = useCartContext();
-
+  const { t } = useTranslation();
   const increase = () => {
     toggleAmount(_id, 'inc');
   };
@@ -23,7 +24,7 @@ const CartItem = ({ _id, image, name, color, price, amount }) => {
         <div className=''>
           <h5 className='text-xs md:text-sm'>{name.substring(0, 20)}</h5>
           <p className='flex items-center text-xs tracking-wider text-gray-400 capitalize md:text-sm'>
-            color :
+            {t('cart:color')} :
             <span
               className='inline-block w-2 h-2 rounded ltr:ml-2 rtl:mr-2 md:w-3 md:h-3'
               style={{ background: color }}

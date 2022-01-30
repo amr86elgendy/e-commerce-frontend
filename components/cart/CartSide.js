@@ -101,7 +101,7 @@ const CartSide = () => {
             <Link href='/cart'>
               <a>
                 <Button
-                  className='w-full p-2 mb-4 uppercase bg-gray-200 hover:bg-gray-300'
+                  className='w-full p-2 mb-4 uppercase bg-gray-300 hover:bg-gray-400'
                   onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
                 >
                   {t('cart:view-cart')}

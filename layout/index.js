@@ -4,7 +4,6 @@ import Theme from '../components/helpers/Theme';
 import CartSide from '../components/cart/CartSide';
 import FilterSide from '../components/products/FilterSide';
 import MenuSide from '../components/home/MenuSide';
-import { useGlobalContext } from '../context/global';
 import Footbar from './Footbar';
 import Footer from './Footer';
 import Navbar from './Navbar';
@@ -14,6 +13,7 @@ import SortList from './SortList';
 import SidebarLeft from './SidebarLeft';
 import ScrollToTop from '../components/helpers/ScrollToTop';
 import Toast from '../components/helpers/Toast';
+import { useGlobalContext } from '../context/global';
 
 const Layout = ({ children }) => {
   const { inside } = useGlobalContext();

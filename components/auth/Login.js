@@ -42,7 +42,7 @@ const Login = () => {
       >
         <div className='flex justify-between p-4 border-b'>
           <h3 className='tracking-wider uppercase text-primary'>
-            {t('common:login')}
+            {t('auth:login')}
           </h3>
           <AiOutlineClose
             className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
@@ -51,7 +51,7 @@ const Login = () => {
         </div>
         <div className='p-4 mt-3'>
           <label className='font-light text-gray-500 capitalize'>
-            {t('common:email')}
+            {t('auth:email')}
             <span className='text-red-500'>*</span>
           </label>
           <input
@@ -70,7 +70,7 @@ const Login = () => {
         </div>
         <div className='p-4'>
           <label className='font-light text-gray-500 capitalize'>
-            {t('common:password')}
+            {t('auth:password')}
             <span className='text-red-500'>*</span>
           </label>
           <input
@@ -92,15 +92,15 @@ const Login = () => {
             className='w-full px-4 py-2 my-2 tracking-wide uppercase btn-primary'
             type='submit'
           >
-            {t('common:sign-in')}
+            {t('auth:sign-in')}
           </Button>
           <h5 className='my-4'>
-            {t('common:new-customer')}
+            {t('auth:new-customer')}
             <span
               className='inline-block text-xs cursor-pointer ltr:ml-2 rtl:mr-2 sm:text-sm text-primary'
               onClick={() => setAuthStatus('register')}
             >
-              {t('common:create-new-account')}
+              {t('auth:create-new-account')}
             </span>
           </h5>
         </div>
