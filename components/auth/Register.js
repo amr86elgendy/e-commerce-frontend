@@ -28,7 +28,7 @@ const Register = ({ authStatus, setAuthStatus }) => {
       {
         onSuccess: (data) => {
           dispatchAuth('LOGIN', data);
-          dispatchGlobal('CLOSE_SIDEBAR_RIGHT');
+          dispatchGlobal('CLOSE_SIDEBAR_LO_CA');
         },
       }
     );
@@ -51,7 +51,7 @@ const Register = ({ authStatus, setAuthStatus }) => {
         </h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-          onClick={() => dispatchGlobal('CLOSE_SIDEBAR_RIGHT')}
+          onClick={() => dispatchGlobal('CLOSE_SIDEBAR_LO_CA')}
         />
       </div>
       <div className='px-4 py-2 mt-3'>

@@ -7,6 +7,7 @@ import { useCartContext } from '../../context/cart';
 import { useWishlistContext } from '../../context/wishlist';
 import { useToastContext } from '../../context/toast';
 import { v4 as uuidv4 } from 'uuid';
+import useTranslation from 'next-translate/useTranslation';
 
 const ProductCard = ({ product }) => {
   const {
@@ -19,6 +20,7 @@ const ProductCard = ({ product }) => {
     slug,
   } = product;
 
+  const { t } = useTranslation();
   const { addToCart, cart } = useCartContext();
   const { addToWishlist, wishlist, removeItemFromWishlist } =
     useWishlistContext();
@@ -95,7 +97,7 @@ const ProductCard = ({ product }) => {
                   : `absolute right-12 top-1/2 whitespace-nowrap py-1 px-1.5 bg-primary-light rounded pointer-events-none opacity-0 group-hover:opacity-100 group-hover:text-black -translate-x-5 group-hover:translate-x-0 -translate-y-1/2 transition duration-500 text-xs`
               }
             >
-              {cartTooltip(name) ? 'Added' : 'Add To Cart'}
+              {cartTooltip(name) ? 'Added' : t('common:add-to-cart')}
             </span>
           </button>
           <button

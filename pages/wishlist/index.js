@@ -9,8 +9,10 @@ import WishlistContent from '../../components/wishlist/WishlistContent';
 // import { useToastContext } from '../context/toast';
 // import { v4 as uuidv4 } from 'uuid';
 import { FiHeart } from 'react-icons/fi';
+import useTranslation from 'next-translate/useTranslation';
 
 const wishlist = () => {
+  const { t } = useTranslation()
   const { pathname, push } = useRouter();
   const path = pathname.split('/').slice(1);
   const { wishlist } = useWishlistContext();
@@ -49,16 +51,16 @@ const wishlist = () => {
         <div className='flex flex-col items-center pt-16 min-h-forMobile md:min-h-page'>
           <FiHeart size={70} color='gray' className='mb-4' />
           <h2 className='mb-8 font-normal tracking-wider uppercase'>
-            your wishlist is empty
+            {t('cart:empty-wishlist')}
           </h2>
           <p className='mb-8 text-sm text-center text-gray-500'>
-            You don't have any products in the wishlist yet.
+            {t('cart:wishlist-desc')}
             <br />
-            You will find a lot of interesting products on our "Shop" page.
+            {t('cart:cart-desc-2')}
           </p>
           <Link href='/products'>
             <button className='px-6 py-2 tracking-widest uppercase btn btn-primary'>
-              return to shop
+              {t('cart:return-to-shop')}
             </button>
           </Link>
         </div>

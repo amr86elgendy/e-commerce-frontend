@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { AiOutlineClose } from 'react-icons/ai';
 import { FaMinus, FaPlus, FaTrash } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/global';
@@ -6,11 +7,23 @@ import { useCartContext } from '../../context/cart';
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import Button from '../helpers/RippleButton';
 import useTranslation from 'next-translate/useTranslation'
+import { useUserContext } from '../../context/user';
 
 const CartSide = () => {
   const { t } = useTranslation();
+  const { push } = useRouter()
   const { dispatch } = useGlobalContext();
+  const { user } = useUserContext();
   const { toggleAmount, total_amount, cart, removeItem } = useCartContext();
+
+  const redirectUser = () => {
+    if (user) {
+      dispatch('CLOSE_SIDEBAR_LO_CA');
+      push('/checkout');
+    } else {
+      dispatch('OPEN_SIDEBAR_LOGIN');
+    }
+  };
 
   return (
     <div className={`flex flex-col ${cart.length && 'justify-between'} h-full`}>
@@ -20,7 +33,7 @@ const CartSide = () => {
         </h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-          onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
+          onClick={() => dispatch('CLOSE_SIDEBAR_LO_CA')}
         />
       </div>
       {cart.length < 1 ? (
@@ -32,7 +45,7 @@ const CartSide = () => {
           <Link href='/products'>
             <button
               className='px-6 py-2 tracking-widest uppercase btn btn-primary'
-              onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
+              onClick={() => dispatch('CLOSE_SIDEBAR_LO_CA')}
             >
               {t('cart:return-to-shop')}
             </button>
@@ -102,15 +115,18 @@ const CartSide = () => {
               <a>
                 <Button
                   className='w-full p-2 mb-4 uppercase bg-gray-300 hover:bg-gray-400'
-                  onClick={() => dispatch('CLOSE_SIDEBAR_RIGHT')}
+                  onClick={() => dispatch('CLOSE_SIDEBAR_LO_CA')}
                 >
                   {t('cart:view-cart')}
                 </Button>
               </a>
             </Link>
-            <Button className='w-full p-2 uppercase btn-primary'>
+            <button
+              className='w-full p-2 mb-4 uppercase btn-primary'
+              onClick={redirectUser}
+            >
               {t('cart:check-out')}
-            </Button>
+            </button>
           </div>
         </>
       )}

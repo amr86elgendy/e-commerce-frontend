@@ -23,7 +23,7 @@ const Login = () => {
       onSuccess: (data) => {
         dispatchAuth('LOGIN', data);
         localStorage.setItem('ishop-token', data.token)
-        dispatchGlobal('CLOSE_SIDEBAR_RIGHT');
+        dispatchGlobal('CLOSE_SIDEBAR_LO_CA');
       }
     });
   };
@@ -46,7 +46,7 @@ const Login = () => {
           </h3>
           <AiOutlineClose
             className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-            onClick={() => dispatchGlobal('CLOSE_SIDEBAR_RIGHT')}
+            onClick={() => dispatchGlobal('CLOSE_SIDEBAR_LO_CA')}
           />
         </div>
         <div className='p-4 mt-3'>

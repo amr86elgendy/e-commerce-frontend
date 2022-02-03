@@ -26,7 +26,7 @@ const FilterSide = () => {
         <h3 className='tracking-wider uppercase text-primary'>filter</h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
-          onClick={() => dispatch('CLOSE_SIDEBAR_LEFT')}
+          onClick={() => dispatch('CLOSE_SIDEBAR_ME_FI')}
         />
       </div>
       {/* BY NAME */}

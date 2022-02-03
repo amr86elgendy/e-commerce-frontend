@@ -42,7 +42,7 @@ const CartContent = () => {
             {t('cart:total-desc')}
           </div>
           <div>
-            <Link href='/product'>
+            <Link href='/products'>
               <button className='p-2 uppercase bg-gray-300 w-36 xl:w-44 hover:bg-gray-400'>
                 {t('cart:return-to-shop')}
               </button>
