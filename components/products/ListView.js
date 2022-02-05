@@ -3,9 +3,8 @@ import Image from 'next/image';
 import Star from './Star';
 
 const ListView = ({ products }) => {
-  console.log(products);
   return (
-    <section className='grid px-5 mb-16 gap-y-12'>
+    <section className='grid px-5 my-8 gap-y-4'>
       {products.map((product) => {
         const {
           _id,
@@ -20,9 +19,9 @@ const ListView = ({ products }) => {
         return (
           <article
             key={_id}
-            className='items-center lg:grid grid-cols-[auto,1fr] gap-x-6'
+            className='items-center md:grid grid-cols-[auto,1fr] gap-x-6 hover:scale-[1.01] hover:shadow-filter'
           >
-            <figure className='mb-4 overflow-hidden rounded sm:w-96'>
+            <figure className='overflow-hidden sm:w-56'>
               <Image
                 src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
                 alt={slug}
@@ -33,17 +32,19 @@ const ListView = ({ products }) => {
               />
             </figure>
             <div>
-              <h4 className='mb-2 text-xl font-semibold'>{name}</h4>
-              <h5 className='mb-3 text-secondary'>{price}</h5>
-              <p className='mb-4 text-gray-500'>
+              <h4 className='px-4 mb-2 font-semibold'>{name}</h4>
+              <h5 className='px-4 mb-3 text-primary'>{price}</h5>
+              <p className='px-4 mb-4 text-sm text-gray-500'>
                 {description.substring(0, 150)}...
               </p>
-              <Star rating={averageRating} numReviews={numReviews} />
-              <Link href={`/products/${slug}?id=${_id}`}>
-                <button className='px-4 py-1.5 mt-4 btn btn-primary'>
-                  Details
-                </button>
-              </Link>
+              <div className='flex items-center justify-between px-4'>
+                <Star rating={averageRating} numReviews={numReviews} />
+                <Link href={`/products/${slug}?id=${_id}`}>
+                  <button className='py-1.5 btn btn-primary px-4 rounded'>
+                    Details
+                  </button>
+                </Link>
+              </div>
             </div>
           </article>
         );

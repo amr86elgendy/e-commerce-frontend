@@ -17,34 +17,21 @@ const Filter = () => {
   const categories = getUniqueValues(all_products, 'category');
   const brands = getUniqueValues(all_products, 'brand');
   const colors = getUniqueValues(all_products, 'colors');
-  
+
   return (
-    <div
-      className={`hidden my-4 shadow-filter transition-all duration-300 px-8 md:grid md:grid-cols-3 lg:grid-cols-4 gap-x-4 overflow-hidden ${
-        openFilter ? 'h-[500px] pt-8' : 'h-0 pt-0'
+    <aside
+      className={`shadow-filter my-8 h-[155vh] overflow-hidden hidden lg:block transition-all ${
+        openFilter ? 'w-[250px] px-4' : 'w-0'
       }`}
     >
-      <div>
-        <h5 className='capitalize'>
-          by name<div className='w-16 bg-black h-0.5 mt-1'></div>
-        </h5>
-        <input
-          type='text'
-          name='text'
-          value={text}
-          placeholder='Search...'
-          onChange={updateFilters}
-          className='block w-10/12 px-3 py-2 mt-6 border-2 border-gray-300 rounded focus:outline-none focus:border-primary focus:shadow-primary'
-        />
-      </div>
       {/* CATEGORY */}
-      <div>
-        <h5 className='capitalize'>
+      <div className='mt-4 border-b border-[#ededed]'>
+        <h5 className='font-semibold capitalize'>
           by category<div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='overflow-y-scroll max-h-40'>
           {categories.map((el, i) => (
-            <li key={i} className='flex items-center mt-2'>
+            <li key={i} className='flex items-center my-2'>
               <input
                 type='checkbox'
                 name='category'
@@ -53,7 +40,7 @@ const Filter = () => {
                 checked={category === el}
                 onChange={updateFilters}
               />
-              <label htmlFor={el} className='ml-4 cursor-pointer'>
+              <label htmlFor={el} className='cursor-pointer ltr:ml-4 rtl:mr-4'>
                 {el}
               </label>
             </li>
@@ -61,16 +48,16 @@ const Filter = () => {
         </ul>
       </div>
       {/* COLOR */}
-      <div>
-        <h5 className='mb-2 capitalize'>
+      <div className='mt-2 border-b border-[#ededed]'>
+        <h5 className='font-semibold capitalize'>
           by color<div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='overflow-y-scroll max-h-40'>
+        <ul className='my-4 overflow-y-scroll max-h-40'>
           {colors.map((el, i) => (
-            <li key={i} className='flex items-center mb-2 cursor-pointer'>
+            <li key={i} className='flex items-center my-2 cursor-pointer'>
               <button
                 name='color'
-                className={`w-7 h-7 mr-3 flex items-center justify-center rounded-full ${
+                className={`w-7 h-7 ltr:mr-3 flex items-center justify-center rounded-full rtl:ml-3 ${
                   color === el ? 'opacity-100' : 'opacity-50'
                 }`}
                 style={{ backgroundColor: el }}
@@ -89,11 +76,11 @@ const Filter = () => {
         </ul>
       </div>
       {/* PRICE */}
-      <div>
-        <h5 className='mb-2 capitalize'>
+      <div className='mt-2 border-b border-[#ededed]'>
+        <h5 className='font-semibold capitalize'>
           by price<div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <div className='mt-5'>
+        <div className='my-4'>
           <p className='text-sm'>{price}</p>
           <input
             type='range'
@@ -107,11 +94,11 @@ const Filter = () => {
         </div>
       </div>
       {/* SIZE */}
-      <div>
-        <h5 className='mb-2 capitalize'>
+      <div className='mt-2 border-b border-[#ededed]'>
+        <h5 className='font-semibold capitalize'>
           by size<div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='flex flex-wrap overflow-y-scroll max-h-40'>
+        <ul className='flex flex-wrap my-4 overflow-y-scroll max-h-40'>
           {['all', 'small', 'medium', 'large', 'xlarge', 'xxlarge'].map(
             (el, i) => (
               <li
@@ -128,11 +115,11 @@ const Filter = () => {
         </ul>
       </div>
       {/* BRAND */}
-      <div>
-        <h5 className='mb-2 capitalize'>
-          by brand<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-2 border-b border-[#ededed]'>
+        <h5 className='font-semibold capitalize'>
+          by brand <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='overflow-y-scroll max-h-40'>
+        <ul className='my-4 overflow-y-scroll max-h-40'>
           {brands.map((el, i) => (
             <li
               key={i}
@@ -149,7 +136,7 @@ const Filter = () => {
               />
               <label
                 htmlFor={el === 'all' ? 'all-brands' : el}
-                className='ml-4 cursor-pointer'
+                className='cursor-pointer ltr:ml-4 rtl:mr-4'
               >
                 {el}
               </label>
@@ -157,7 +144,7 @@ const Filter = () => {
           ))}
         </ul>
       </div>
-    </div>
+    </aside>
   );
 };
 

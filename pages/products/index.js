@@ -7,12 +7,13 @@ import Filter from '../../components/products/Filter';
 import { useProductContext } from '../../context/product';
 import { useEffect } from 'react';
 import { getProducts } from '../../apis/product';
+import { useGlobalContext } from '../../context/global';
 
 const index = ({ products }) => {
   const { pathname } = useRouter();
   const path = pathname.split('/').slice(1);
   const { dispatch } = useProductContext();
-
+  const { openFilter } = useGlobalContext();
   useEffect(() => {
     dispatch('ALL_PRODUCTS', products);
   }, [products]);
@@ -28,8 +29,10 @@ const index = ({ products }) => {
       <Breadcrumb path={path} />
       <main className='container px-4'>
         <Sortbar />
-        <Filter />
-        <ProductList />
+        <section className={`grid lg:grid-cols-[auto,1fr] gap-x-4`}>
+          <Filter />
+          <ProductList />
+        </section>
       </main>
     </>
   );

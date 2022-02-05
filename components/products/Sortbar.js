@@ -14,7 +14,7 @@ const Sortbar = () => {
       {/* FILTER BUTTON */}
       <div className='capitalize'>
         <div
-          className='hidden text-sm cursor-pointer hover:text-primary md:text-base md:inline'
+          className='hidden text-sm cursor-pointer hover:text-primary md:text-base lg:inline'
           onClick={() => dispatch('TOGGLE_FILTER')}
         >
           {openFilter ? (
@@ -26,7 +26,7 @@ const Sortbar = () => {
         </div>
         {/* ############# */}
         <div
-          className='text-sm cursor-pointer hover:text-primary md:text-base md:hidden'
+          className='text-sm cursor-pointer hover:text-primary md:text-base lg:hidden'
           onClick={() => dispatch('OPEN_SIDEBAR_FILTER')}
         >
           <FaFilter className='inline-block' /> filter
