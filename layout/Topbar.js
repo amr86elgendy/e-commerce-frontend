@@ -53,21 +53,21 @@ const Topbar = () => {
           <a
             href='https://www.facebook.com'
             target='_blank'
-            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full facebook'
+            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full hover:bg-[#3b5a9a]'
           >
             <FaFacebookF />
           </a>
           <a
             href='https://www.facebook.com'
             target='_blank'
-            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full twitter'
+            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full hover:bg-[#1aa9e1]'
           >
             <FaTwitter />
           </a>
           <a
             href='https://www.facebook.com'
             target='_blank'
-            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full instagram'
+            className='flex items-center justify-center w-8 h-8 transition duration-300 rounded-full hover:bg-[#f56040]'
           >
             <FaInstagram />
           </a>
