@@ -33,7 +33,7 @@ const Sortbar = () => {
         </div>
       </div>
       {/* END FILTER BUTTON */}
-
+      {/* START GRID BUTTONS */}
       <div className='flex justify-self-center'>
         <div
           className='mr-1 border border-gray-700 cursor-pointer md:mr-2 group'

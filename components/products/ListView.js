@@ -21,7 +21,7 @@ const ListView = ({ products }) => {
             key={_id}
             className='items-center md:grid grid-cols-[auto,1fr] gap-x-6 hover:scale-[1.01] hover:shadow-filter'
           >
-            <figure className='overflow-hidden sm:w-56'>
+            <figure className='overflow-hidden sm:w-64'>
               <Image
                 src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
                 alt={slug}
