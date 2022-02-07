@@ -29,7 +29,7 @@ const index = ({ products }) => {
       <Breadcrumb path={path} />
       <main className='container px-4'>
         <Sortbar />
-        <section className={`grid lg:grid-cols-[auto,1fr] gap-x-4`}>
+        <section className={`grid lg:grid-cols-[auto,1fr] gap-x-4 items-start`}>
           <Filter />
           <ProductList />
         </section>

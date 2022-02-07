@@ -4,6 +4,7 @@
   "pages": {
     "*": ["common", "breadcrumb", "auth", "cart"],
     "/": ["home"],
-    "/about": ["about"]
+    "/about": ["about"],
+    "/products": ["products"]
   }
 }

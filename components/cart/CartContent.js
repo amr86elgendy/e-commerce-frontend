@@ -43,13 +43,13 @@ const CartContent = () => {
           </div>
           <div>
             <Link href='/products'>
-              <button className='p-2 uppercase bg-gray-300 w-36 xl:w-44 hover:bg-gray-400'>
+              <button className='p-2 text-sm tracking-wide uppercase bg-gray-300 w-36 xl:w-48 hover:bg-gray-400'>
                 {t('cart:return-to-shop')}
               </button>
             </Link>
 
             <button
-              className='p-2 m-2 uppercase w-36 xl:w-44 btn-primary'
+              className='p-2 m-2 text-sm tracking-wide uppercase w-36 xl:w-48 btn-primary'
               onClick={redirectUser}
             >
               {t('cart:check-out')}

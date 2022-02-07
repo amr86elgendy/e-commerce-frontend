@@ -1,8 +1,10 @@
+import useTranslation from 'next-translate/useTranslation';
 import React from 'react';
 import { FaCheckCircle, FaExclamationTriangle, FaTimes } from 'react-icons/fa';
 import { useToastContext } from '../../context/toast';
 
 const Toast = () => {
+  const { t } = useTranslation();
   const { state, dispatch } = useToastContext();
 
   return (
@@ -30,8 +32,8 @@ const Toast = () => {
                 <FaExclamationTriangle color='red' size={25} />
               )}
             </div>
-            <div className='self-center flex-1 ml-4'>
-              <p className='font-semibold'>{noti.type}</p>
+            <div className='self-center flex-1 ltr:ml-4 rtl:mr-4'>
+              <p className='font-semibold'>{noti.type === 'success' ? t('common:success') : ''}</p>
               <p className='text-xs tracking-wide capitalize'>{noti.message}</p>
             </div>
             <FaTimes

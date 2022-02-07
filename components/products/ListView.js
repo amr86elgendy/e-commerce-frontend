@@ -4,7 +4,7 @@ import Star from './Star';
 
 const ListView = ({ products }) => {
   return (
-    <section className='grid px-5 my-8 gap-y-4'>
+    <section className='grid px-5 my-8 gap-y-8'>
       {products.map((product) => {
         const {
           _id,
