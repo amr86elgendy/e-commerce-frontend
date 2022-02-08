@@ -18,25 +18,25 @@ const filter_reducer = (state, action) => {
     const { sort, filtered_products } = state;
     let arr = [...filtered_products];
 
-    if (sort === 'Price, low to high') {
+    if (sort === 'low-high') {
       arr = arr.sort((a, b) => a.price - b.price);
     }
-    if (sort === 'Price, high to low') {
+    if (sort === 'high-low') {
       arr = arr.sort((a, b) => b.price - a.price);
     }
-    if (sort === 'Alphabetically, A-Z') {
+    if (sort === 'a-z') {
       arr = arr.sort((a, b) => a.name.localeCompare(b.name));
     }
-    if (sort === 'Alphabetically, Z-A') {
+    if (sort === 'z-a') {
       arr = arr.sort((a, b) => b.name.localeCompare(a.name));
     }
-    if (sort === 'Date, old to new') {
+    if (sort === 'old-new') {
       arr = arr.sort(
         (a, b) =>
           new Date(a.createdAt).valueOf() - new Date(b.createdAt).valueOf()
       );
     }
-    if (sort === 'Date, new to old') {
+    if (sort === 'new-old') {
       arr = arr.sort(
         (a, b) =>
           new Date(b.createdAt).valueOf() - new Date(a.createdAt).valueOf()

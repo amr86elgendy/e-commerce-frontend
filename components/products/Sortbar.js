@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaAngleDown, FaFilter, FaTimes } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/global';
 import { useFilterContext } from '../../context/filter';
-import { sortList } from '../helpers/constant';
+import { sortListEN, sortListAR } from '../helpers/constant';
+import useTranslation from 'next-translate/useTranslation';
 
 const Sortbar = () => {
-  const { dispatch, openFilter } = useGlobalContext();
+  const { t, lang } = useTranslation();
+  const { dispatch, openFilter, openSortList } = useGlobalContext();
   const { sort, updateSort } = useFilterContext();
   const [openSort, setOpenSort] = useState(false);
+  const [list, setList] = useState([]);
+
+  useEffect(() => {
+    switch (lang) {
+      case 'en': return setList([...sortListEN]);
+      case 'ar': return setList([...sortListAR]);
+    }
+  }, [lang])
 
   return (
     <div className='grid items-center grid-cols-3 py-4'>
@@ -22,27 +32,27 @@ const Sortbar = () => {
           ) : (
             <FaFilter className='inline-block' />
           )}{' '}
-          filter
+          {t('products:filter')}
         </div>
         {/* ############# */}
         <div
           className='text-sm cursor-pointer hover:text-primary md:text-base lg:hidden'
           onClick={() => dispatch('OPEN_SIDEBAR_FILTER')}
         >
-          <FaFilter className='inline-block' /> filter
+          <FaFilter className='inline-block' /> {t('products:filter')}
         </div>
       </div>
       {/* END FILTER BUTTON */}
       {/* START GRID BUTTONS */}
-      <div className='flex justify-self-center'>
+      <div className='flex items-center justify-self-center'>
         <div
-          className='mr-1 border border-gray-700 cursor-pointer md:mr-2 group'
+          className='hidden cursor-pointer ltr:mr-2 group md:block rtl:ml-2'
           onClick={() => dispatch('SET_LISTVIEW')}
         >
           {Array.from({ length: 3 }, (_, i) => (
             <div
               key={i}
-              className='w-8 m-0.5 bg-gray-600 group-hover:bg-black transition-all duration-200 h-[5px]'
+              className='w-8 mx-0.5 bg-gray-600 group-hover:bg-black transition-all duration-200 h-[5px] my-1'
             ></div>
           ))}
         </div>
@@ -77,39 +87,39 @@ const Sortbar = () => {
         className='block text-sm capitalize cursor-pointer justify-self-end hover:text-primary md:hidden'
         onClick={() => dispatch('TOGGLE_SORT_LIST')}
       >
-        sort by{' '}
+        {t('products:sort-by')}{' '}
         <FaAngleDown
-          className={`inline-block transition-all duration-200 ${
-            openSort && 'rotate-180'
+          className={`inline-block transition-all duration-200 rotate-180 ${
+            openSortList && 'rotate-0'
           }`}
         />
       </div>
       {/* ################# */}
       <div
-        className='relative hidden w-48 p-2 text-center text-gray-600 border border-gray-200 cursor-pointer justify-self-end rounded-3xl hover:text-primary md:block'
+        className='relative items-center justify-around hidden w-48 p-2 text-sm text-center text-gray-600 border border-gray-200 cursor-pointer justify-self-end rounded-3xl hover:text-primary md:flex'
         onClick={() => setOpenSort(!openSort)}
       >
-        {sort}{' '}
+        {t(`products:${sort}`)}{' '}
         <FaAngleDown
           className={`inline-block transition-all duration-200 ${
             openSort && 'rotate-180'
           }`}
         />
         <ul
-          className={`absolute left-auto z-40 w-11/12 transition-all duration-200 bg-white top-14 shadow-sort ${
+          className={`absolute left-auto z-40 w-11/12 transition-all duration-200 bg-white top-14 shadow-sort text-sm ${
             openSort
               ? 'opacity-100 visible scale-100'
               : 'scale-75 opacity-0 invisible'
           }`}
         >
-          {sortList.map((li, i) => (
+          {list.map((li, i) => (
             <option
               key={i}
-              className='py-3 pl-3 text-sm text-left text-gray-500 transition-all duration-200 hover:bg-gray-100'
-              value={li}
+              className='py-3 text-sm text-gray-500 transition-all duration-200 ltr:text-left ltr:pl-3 hover:bg-gray-100 rtl:pr-3 rtl:text-right'
+              value={li.value}
               onClick={updateSort}
             >
-              {li}
+              {li.label}
             </option>
           ))}
         </ul>

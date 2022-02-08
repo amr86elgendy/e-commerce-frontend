@@ -3,8 +3,10 @@ import { FaCheck } from 'react-icons/fa';
 import { useGlobalContext } from '../../context/global';
 import { useFilterContext } from '../../context/filter';
 import { getUniqueValues } from '../helpers/constant';
+import useTranslation from 'next-translate/useTranslation';
 
 const Filter = () => {
+  const { t } = useTranslation();
   const [size, setSize] = useState('all');
   const { openFilter } = useGlobalContext();
   const {
@@ -27,7 +29,8 @@ const Filter = () => {
       {/* CATEGORY */}
       <div className='mt-4 border-b border-[#ededed]'>
         <h5 className='font-semibold capitalize'>
-          by category<div className='w-16 bg-black h-0.5 mt-1'></div>
+          {t('products:category')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='overflow-y-scroll max-h-40'>
           {categories.map((el, i) => (
@@ -50,7 +53,8 @@ const Filter = () => {
       {/* COLOR */}
       <div className='mt-2 border-b border-[#ededed]'>
         <h5 className='font-semibold capitalize'>
-          by color<div className='w-16 bg-black h-0.5 mt-1'></div>
+          {t('products:color')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='my-4 overflow-y-scroll max-h-40'>
           {colors.map((el, i) => (
@@ -78,7 +82,8 @@ const Filter = () => {
       {/* PRICE */}
       <div className='mt-2 border-b border-[#ededed]'>
         <h5 className='font-semibold capitalize'>
-          by price<div className='w-16 bg-black h-0.5 mt-1'></div>
+          {t('products:price')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <div className='my-4'>
           <p className='text-sm'>{price}</p>
@@ -96,7 +101,8 @@ const Filter = () => {
       {/* SIZE */}
       <div className='mt-2 border-b border-[#ededed]'>
         <h5 className='font-semibold capitalize'>
-          by size<div className='w-16 bg-black h-0.5 mt-1'></div>
+          {t('products:size')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='flex flex-wrap my-4 overflow-y-scroll max-h-40'>
           {['all', 'small', 'medium', 'large', 'xlarge', 'xxlarge'].map(
@@ -117,7 +123,8 @@ const Filter = () => {
       {/* BRAND */}
       <div className='mt-2 border-b border-[#ededed]'>
         <h5 className='font-semibold capitalize'>
-          by brand <div className='w-16 bg-black h-0.5 mt-1'></div>
+          {t('products:brand')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='my-4 overflow-y-scroll max-h-40'>
           {brands.map((el, i) => (

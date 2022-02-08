@@ -5,10 +5,11 @@ import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { useFilterContext } from '../../context/filter';
 import { getUniqueValues } from '../helpers/constant';
+import useTranslation from 'next-translate/useTranslation';
 
 const FilterSide = () => {
+  const { t } = useTranslation();
   const [size, setSize] = useState('all');
-
   const { dispatch } = useGlobalContext();
   const {
     filters: { text, category, brand, color, min_price, price, max_price },
@@ -21,36 +22,25 @@ const FilterSide = () => {
   const colors = getUniqueValues(all_products, 'colors');
 
   return (
-    <div>
+    <div className='px-4'>
       <div className='flex justify-between p-4 border-b'>
-        <h3 className='tracking-wider uppercase text-primary'>filter</h3>
+        <h3 className='tracking-wider uppercase text-primary'>
+          {t('products:filter')}
+        </h3>
         <AiOutlineClose
           className='text-xl transition-all duration-300 cursor-pointer hover:rotate-180 ease'
           onClick={() => dispatch('CLOSE_SIDEBAR_ME_FI')}
         />
       </div>
-      {/* BY NAME */}
-      <div className='p-4 border-b'>
-        <h5 className='capitalize'>
-          by name<div className='bg-black h-0.5 mt-1 w-16'></div>
-        </h5>
-        <input
-          type='text'
-          name='text'
-          value={text}
-          placeholder='Search...'
-          onChange={updateFilters}
-          className='block w-full px-3 py-1 mt-6 border-2 border-gray-400'
-        />
-      </div>
       {/* CATEGORY */}
-      <div className='p-4 border-b'>
-        <h5 className='capitalize'>
-          by category<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-4 border-b'>
+        <h5 className='font-semibold capitalize'>
+          {t('products:category')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
         <ul className='overflow-y-scroll max-h-40'>
           {categories.map((el, i) => (
-            <li key={i} className={`flex items-center mt-2 cursor-pointer`}>
+            <li key={i} className='flex items-center my-2'>
               <input
                 type='checkbox'
                 name='category'
@@ -59,7 +49,7 @@ const FilterSide = () => {
                 checked={category === el}
                 onChange={updateFilters}
               />
-              <label htmlFor={el} className='ml-4 cursor-pointer'>
+              <label htmlFor={el} className='cursor-pointer ltr:ml-4 rtl:mr-4'>
                 {el}
               </label>
             </li>
@@ -67,16 +57,17 @@ const FilterSide = () => {
         </ul>
       </div>
       {/* COLOR */}
-      <div className='p-4 border-b'>
-        <h5 className='mb-2 capitalize'>
-          by color<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-2 border-b'>
+        <h5 className='font-semibold capitalize'>
+          {t('products:color')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='overflow-y-scroll max-h-40'>
+        <ul className='my-4 overflow-y-scroll max-h-40'>
           {colors.map((el, i) => (
-            <li key={i} className='flex items-center mb-2 cursor-pointer'>
+            <li key={i} className='flex items-center my-2 cursor-pointer'>
               <button
                 name='color'
-                className={`w-7 h-7 mr-3 flex items-center justify-center rounded-full ${
+                className={`w-7 h-7 ltr:mr-3 flex items-center justify-center rounded-full rtl:ml-3 ${
                   color === el ? 'opacity-100' : 'opacity-50'
                 }`}
                 style={{ backgroundColor: el }}
@@ -95,11 +86,12 @@ const FilterSide = () => {
         </ul>
       </div>
       {/* PRICE */}
-      <div className='p-4 border-b'>
-        <h5 className='mb-2 capitalize'>
-          by price<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-2 border-b'>
+        <h5 className='font-semibold capitalize'>
+          {t('products:price')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <div className='mt-5'>
+        <div className='my-4'>
           <p className='text-sm'>$ {price}</p>
           <input
             type='range'
@@ -108,16 +100,17 @@ const FilterSide = () => {
             min={min_price}
             max={max_price}
             value={price}
-            className='block h-1 my-2 outline-none appearance-none bg-primary'
+            className='h-1 outline-none appearance-none bg-primary'
           />
         </div>
       </div>
       {/* SIZE */}
-      <div className='p-4 border-b'>
-        <h5 className='mb-2 capitalize'>
-          by size<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-2 border-b'>
+        <h5 className='font-semibold capitalize'>
+          {t('products:size')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='flex flex-wrap overflow-y-scroll max-h-40'>
+        <ul className='flex flex-wrap my-4 overflow-y-scroll max-h-40'>
           {['all', 'small', 'medium', 'large', 'xlarge', 'xxlarge'].map(
             (el, i) => (
               <li
@@ -134,16 +127,17 @@ const FilterSide = () => {
         </ul>
       </div>
       {/* BRAND */}
-      <div className='p-4 border-b'>
-        <h5 className='mb-2 capitalize'>
-          by brand<div className='w-16 bg-black h-0.5 mt-1'></div>
+      <div className='mt-2 border-b'>
+        <h5 className='font-semibold capitalize'>
+          {t('products:brand')}
+          <div className='w-16 bg-black h-0.5 mt-1'></div>
         </h5>
-        <ul className='overflow-y-scroll max-h-40'>
+        <ul className='my-4 overflow-y-scroll max-h-40'>
           {brands.map((el, i) => (
             <li
               key={i}
               name='brand'
-              className='flex items-center mt-2 cursor-pointer'
+              className='flex items-center my-2 cursor-pointer'
             >
               <input
                 type='checkbox'
@@ -155,7 +149,7 @@ const FilterSide = () => {
               />
               <label
                 htmlFor={el === 'all' ? 'all-brands' : el}
-                className='ml-4 cursor-pointer'
+                className='cursor-pointer ltr:ml-4 rtl:mr-4'
               >
                 {el}
               </label>

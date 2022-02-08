@@ -6,9 +6,11 @@ import Star from '../../components/products/Star';
 import ProductImages from '../../components/products/ProductImages';
 import AddToCart from '../../components/cart/AddToCart';
 import { getProduct } from '../../apis/product';
+import useTranslation from 'next-translate/useTranslation';
 
 const ProductDetails = ({ product }) => {
-  const { locale, pathname, query } = useRouter();
+  const { t } = useTranslation();
+  const { pathname, query } = useRouter();
   const path = [pathname.split('/')[1], query.slug];
 
   if (!product) return <h1>Loading ...!</h1>;
@@ -33,12 +35,12 @@ const ProductDetails = ({ product }) => {
         <meta name='author' content='Amr Elgendy' />
         <meta name='description' content='e-commerce website' />
       </Head>
-      <section className='min-h-page' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <section className='min-h-page'>
         <Breadcrumb path={path} />
         <div className='container px-5 py-12'>
           <Link href='/products'>
             <a className='capitalize py-1.5 px-4 btn btn-primary'>
-              {locale === 'ar' ? 'العودة الي المنتجات' : 'back to shop'}
+              {t('cart:return-to-shop')}
             </a>
           </Link>
           <div className='grid gap-8 mt-8 mb-8 lg:grid-cols-2'>
@@ -55,15 +57,21 @@ const ProductDetails = ({ product }) => {
                     : 'capitalize w-72 grid grid-cols-[125px,1fr] mb-4 text-primary'
                 }
               >
-                <span className='font-bold text-black'>Available : </span>
-                {quantity > 0 ? 'In stock' : 'out of stock'}
+                <span className='font-bold text-black'>
+                  {t('products:available')} :{' '}
+                </span>
+                {quantity > 0 ? t('products:in-stock') : t('products:out-of-stock')}
               </p>
               <p className='grid mb-4 text-xs capitalize sm:text-base grid-cols-[125px,1fr]'>
-                <span className='text-base font-bold'>SKU :</span>
+                <span className='text-base font-bold uppercase'>
+                  {t('products:sku')} :
+                </span>
                 {SKU}
               </p>
               <p className='grid mb-4 capitalize w-72 grid-cols-[125px,1fr]'>
-                <span className='font-bold'>Brand :</span>
+                <span className='font-bold capitalize'>
+                  {t('products:brand')} :
+                </span>
                 {brand}
               </p>
               <hr />

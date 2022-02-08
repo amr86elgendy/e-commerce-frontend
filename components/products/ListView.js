@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Star from './Star';
+import useTranslation from 'next-translate/useTranslation';
 
 const ListView = ({ products }) => {
+  const { t } = useTranslation();
   return (
     <section className='grid px-5 my-8 gap-y-8'>
       {products.map((product) => {
@@ -40,8 +42,8 @@ const ListView = ({ products }) => {
               <div className='flex items-center justify-between px-4'>
                 <Star rating={averageRating} numReviews={numReviews} />
                 <Link href={`/products/${slug}?id=${_id}`}>
-                  <button className='py-1.5 btn btn-primary px-4 rounded'>
-                    Details
+                  <button className='py-1.5 btn btn-primary px-4 text-sm capitalize'>
+                    {t('products:view-details')}
                   </button>
                 </Link>
               </div>

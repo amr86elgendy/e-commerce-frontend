@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useCartContext } from '../../context/cart';
 import { FaCheck } from 'react-icons/fa';
 import AmountButtons from './AmountButtons';
+import useTranslation from 'next-translate/useTranslation';
 
 const AddToCart = ({ product }) => {
+  const { t } = useTranslation()
   const { _id, quantity, colors, sizes } = product;
   const { addToCart } = useCartContext();
-  const { locale } = useRouter()
 
   const [mainColor, setMainColor] = useState(colors[0]);
   const [mainSize, setMainSize] = useState(0);
@@ -25,8 +25,8 @@ const AddToCart = ({ product }) => {
 
   return (
     <div>
-      <div className='grid mt-4 mb-4 grid-cols-[125px,1fr]'>
-        <span className='font-bold capitalize'>colors :</span>
+      <div className='grid mt-4 grid-cols-[125px,1fr]'>
+        <span className='font-bold capitalize'>{t('products:color')} :</span>
         <div className='flex'>
           {colors.map((color, index) => (
             <button
@@ -44,8 +44,8 @@ const AddToCart = ({ product }) => {
           ))}
         </div>
       </div>
-      <div className='grid items-center mt-4 mb-4 grid-cols-[125px,1fr]'>
-        <span className='font-bold capitalize'>sizes :</span>
+      <div className='grid items-center mt-4 grid-cols-[125px,1fr]'>
+        <span className='font-bold capitalize'>{t('products:size')} :</span>
         <div className='flex'>
           {sizes.map((size, index) => (
             <button
@@ -61,7 +61,7 @@ const AddToCart = ({ product }) => {
           ))}
         </div>
       </div>
-      <div className=''>
+      <div className='mt-8'>
         <AmountButtons
           increase={increase}
           decrease={decrease}
@@ -69,10 +69,10 @@ const AddToCart = ({ product }) => {
         />
         <Link href='/cart'>
           <a
-            className='btn btn-primary px-6 py-1.5 uppercase'
+            className='btn btn-primary px-6 py-1.5 uppercase mt-4'
             onClick={() => addToCart(_id, mainColor, amount, product)}
           >
-            {locale === 'ar' ? 'أضف إلي االسلة' : 'add to cart'}
+            {t('cart:add-to-cart')}
           </a>
         </Link>
       </div>

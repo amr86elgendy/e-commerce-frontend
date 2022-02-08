@@ -2,9 +2,8 @@
   "locales": ["en", "ar"],
   "defaultLocale": "en",
   "pages": {
-    "*": ["common", "breadcrumb", "auth", "cart"],
-    "/": ["home"],
-    "/about": ["about"],
-    "/products": ["products"]
+    "*": ["common", "breadcrumb", "auth", "cart", "products"],
+    "/": ["home", "products"],
+    "/about": ["about"]
   }
 }

@@ -1,6 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-const checkout = () => {
+const index = () => {
   return (
     <>
       <Head>
@@ -8,10 +8,10 @@ const checkout = () => {
         <meta name='description' content='e-commerce website' />
       </Head>
       <div className='flex items-center justify-center min-h-page'>
-        <h1>checkot Page</h1>
+        <h1>Orders Page</h1>
       </div>
     </>
   );
-}
+};
 
-export default checkout
+export default index;

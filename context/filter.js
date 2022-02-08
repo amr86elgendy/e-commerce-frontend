@@ -6,7 +6,7 @@ import reducer from '../functions/filter'
 const initialState = {
   filtered_products: [],
   all_products: [],
-  sort: 'Price, low to high',
+  sort: 'low-high',
   filters: {
     text: '',
     brand: 'all',
