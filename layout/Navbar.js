@@ -58,7 +58,9 @@ const Navbar = () => {
           <input
             type='text'
             name='search'
-            className='px-4 py-1.5 border border-gray-300 focus:outline-none focus:border-primary inline-block w-[80%] placeholder-shown:font-light placeholder-shown:text-sm ltr:border-r-0 rtl:border-l-0 focus:shadow-primary'
+            className={`px-4 py-1.5 border border-gray-300 focus:outline-none focus:border-primary inline-block w-[80%] placeholder-shown:font-light placeholder-shown:text-sm focus:shadow-primary ${
+              lang === 'en' ? 'border-r-0' : 'border-l-0'
+            }`}
             placeholder={t('common:search-placeholder')}
           />
           <button
