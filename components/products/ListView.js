@@ -25,7 +25,7 @@ const ListView = ({ products }) => {
           >
             <figure className='overflow-hidden sm:w-64'>
               <Image
-                src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
+                src={images[0]}
                 alt={slug}
                 width={390}
                 height={310}

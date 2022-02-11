@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <section className='min-h-screen pt-4'>
       <img
-        src={`${process.env.NEXT_PUBLIC_APP_URL}/uploads/albany sectional.jpg`}
+        src='https://res.cloudinary.com/amrelgendy/image/upload/v1644541696/elgendy-ecommerce/albany_sectional_ix9dot.jpg'
         alt=''
         className='h-full min-w-full'
       />

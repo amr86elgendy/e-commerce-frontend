@@ -5,7 +5,7 @@ module.exports = () => {
     ...nextTranslate(),
     reactStrictMode: true,
     images: {
-      domains: ['elgendy-ecommerce.herokuapp.com'],
+      domains: ['elgendy-ecommerce.herokuapp.com', 'res.cloudinary.com'],
     },
   };
 };

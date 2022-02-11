@@ -61,7 +61,7 @@ const CartSide = () => {
               >
                 <a href='' className='block w-32'>
                   <img
-                    src={`${process.env.NEXT_PUBLIC_APP_URL}${item.image}`}
+                    src={item.image}
                     alt=''
                     className='w-full h-ful'
                   />

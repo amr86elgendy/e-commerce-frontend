@@ -76,7 +76,7 @@ const ProductCard = ({ product }) => {
     <div className='relative card'>
       <figure className='relative w-full overflow-hidden'>
         <Image
-          src={`${process.env.NEXT_PUBLIC_APP_URL}${images[0]}`}
+          src={images[0]}
           alt={name}
           width={200}
           height={150}
