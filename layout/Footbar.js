@@ -98,7 +98,7 @@ const Footbar = () => {
           onClick={() => dispatch('OPEN_SIDEBAR_CART')}
         >
           <FiShoppingCart size={22} className='mx-auto' />
-          <span className='absolute w-4 h-4 text-center text-white bg-primary rounded-full ltr:-right-1.5 -top-2 rtl:right-2'>
+          <span className='absolute w-[18px] h-[18px] text-center text-white bg-primary rounded-full ltr:-right-1.5 -top-2 rtl:right-2'>
             {total_items}
           </span>{' '}
           {t('common:cart')}

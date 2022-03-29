@@ -142,7 +142,7 @@ const Navbar = () => {
             <FiShoppingCart size={22} className='ltr:mr-1 rtl:ml-1' />
             {t('common:cart')}
             <span
-              className={`absolute flex items-center justify-center w-5 h-5 text-sm text-white border-2 border-white rounded-full bg-primary -top-2 ${
+              className={`absolute flex items-center justify-center w-[18px] h-[18px] text-sm text-white rounded-full bg-primary -top-2 ${
                 lang === 'en' ? 'right-8' : 'right-2 '
               }`}
             >

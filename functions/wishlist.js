@@ -8,15 +8,8 @@ const wishlist_reducer = (state, action) => {
   if (action.type === 'ADD_TO_WISHLIST') {
     const { product } = action.payload;
     const oldItem = state.wishlist.find((i) => i._id === product._id);
-    if (oldItem) {
-      return { ...state };
-    } else {
-      localStorage.setItem(
-        'wishlist',
-        JSON.stringify([...state.wishlist, product])
-      );
-      return { ...state, wishlist: [...state.wishlist, product] };
-    }
+    if (oldItem) return { ...state };
+    else return { ...state, wishlist: [...state.wishlist, product] };
   }
   if (action.type === 'REMOVE_WISHLIST_ITEM') {
     const newWishlist = state.wishlist.filter(

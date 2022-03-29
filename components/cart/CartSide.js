@@ -106,7 +106,7 @@ const CartSide = () => {
           <div className='p-5 border-t border-gray-300 shadow-md'>
             <div className='flex justify-between'>
               <h3 className='capitalize'>{t('cart:total')} :</h3>
-              <p>EGP {total_amount}</p>
+              <p>EGP {total_amount.toFixed(2)}</p>
             </div>
             <p className='my-3 text-sm font-light leading-6'>
               {t('cart:total-desc')}

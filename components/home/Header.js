@@ -2,11 +2,11 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <section className='min-h-screen pt-4'>
+    <section className='pt-4'>
       <img
         src='https://res.cloudinary.com/amrelgendy/image/upload/v1644541696/elgendy-ecommerce/albany_sectional_ix9dot.jpg'
         alt=''
-        className='h-full min-w-full'
+        className='min-w-full'
       />
     </section>
   );

@@ -7,7 +7,7 @@ const BestSeller = ({ products }) => {
   return (
     <section className='py-2'>
       <header className='py-4 bg-gray-100 rounded-t-md'>
-        <h1 className='italic font-bold tracking-wider text-center text-gray-400 uppercase'>
+        <h1 className='text-2xl italic font-bold text-center text-gray-400 uppercase md:text-4xl'>
           {t('home:best-seller')}
           {/* Best-Seller */}
         </h1>

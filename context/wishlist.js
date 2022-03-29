@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useReducer } from 'react';
 import reducer from '../functions/wishlist';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const initialState = {
   wishlist: [],
@@ -8,15 +9,18 @@ const WishlistContext = React.createContext();
 
 export const WishlistProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [wishlistStorage, setWishlistStorage] = useLocalStorage('ishop-wishlist', []);
 
   useEffect(() => {
-    if (localStorage.getItem('wishlist')) {
+    if (wishlistStorage) {
       dispatch({
         type: 'SET_WISHLIST',
-        payload: JSON.parse(localStorage.getItem('wishlist')),
+        payload: wishlistStorage,
       });
     }
   }, []);
+
+  useEffect(() => setWishlistStorage(state.wishlist), [state.wishlist]);
 
   const addToWishlist = (product) =>
     dispatch({ type: 'ADD_TO_WISHLIST', payload: { product } });

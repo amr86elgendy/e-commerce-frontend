@@ -12,7 +12,7 @@ const Overlay = () => {
 
   return (
     <div
-      className={`fixed top-0 bottom-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed inset-0 z-40 transition-all duration-300 ${
         openSidebar_lo_ca || openSortList || openSidebar_me_fi
           ? 'opacity-100 visible'
           : 'invisible opacity-0'

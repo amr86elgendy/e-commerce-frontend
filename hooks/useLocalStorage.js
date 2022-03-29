@@ -1,21 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-const PREFIX = 'ishop-';
+const getLocalValue = (key, initValue) => {
+  //SSR Next.js
+  if (typeof window === 'undefined') return initValue;
 
-export default function useLocalStorage(key, initialValue) {
-  const prefixedKey = PREFIX + key;
-  const [value, setValue] = useState(null);
+  // if a value is already store
+  const localValue = JSON.parse(localStorage.getItem(key));
+  if (localValue) return localValue;
+
+  // return result of a function
+  if (initValue instanceof Function) return initValue();
+
+  return initValue;
+};
+
+const useLocalStorage = (key, initValue) => {
+  const [value, setValue] = useState(() => {
+    return getLocalValue(key, initValue);
+  });
 
   useEffect(() => {
-    const jsonValue = localStorage.getItem(prefixedKey);
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
 
-    if (jsonValue !== null) setValue(JSON.parse(jsonValue));
-    setValue(initialValue);
-  }, []);
+  const remove = useCallback(() => {
+    setValue(undefined)
+  }, [])
 
-  useEffect(() => {
-    localStorage.setItem(prefixedKey, JSON.stringify(value));
-  }, [prefixedKey, value]);
+  return [value, setValue, remove];
+};
 
-  return [value, setValue];
-}
+export default useLocalStorage;

@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useReducer } from 'react'
 import reducer from '../functions/cart'
+import useLocalStorage from '../hooks/useLocalStorage'
 
 const initialState = {
   cart: [],
@@ -12,15 +13,16 @@ const CartContext = React.createContext()
 
 export const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
+  const [cartStorage, setCartStorage] = useLocalStorage('ishop-cart');
+  
   useEffect(() => {
-    if (localStorage.getItem('cart')) {
+    if (cartStorage) {
       dispatch({
         type: 'SET_CART',
-        payload: JSON.parse(localStorage.getItem('cart')),
-      })
+        payload: cartStorage,
+      });
     }
-  }, [])
+  }, []);
 
   const addToCart = (_id, color, amount, product) =>
     dispatch({ type: 'ADD_TO_CART', payload: { _id, color, amount, product } })
@@ -37,7 +39,7 @@ export const CartProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: 'COUNT_CART_TOTALS' })
-    localStorage.setItem('cart', JSON.stringify(state.cart))
+    setCartStorage(state.cart);
   }, [state.cart])
 
   return (
